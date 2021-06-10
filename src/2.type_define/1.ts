@@ -10,7 +10,7 @@ values.push('a');
 
 const data: [string, number] = [msg, size];
 data[0].substr(1);
-data[1].substr(1);
+data[1].substr(1); // 타입이 number 라서 에러 발생 
 
 console.log('typeof 123 =>', typeof 123); // number
 console.log('typeof "abc => ', typeof 'abc'); // string

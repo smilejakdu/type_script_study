@@ -8,5 +8,6 @@ let v3: number | undefined = undefined;
 v3 = 123;
 
 console.log("typeof undefined =>", typeof undefined);
-console.log("typeof null =>" , typeof null);
+console.log("typeof null =>", typeof null); // 자바스크립트에서 null 은 object 로 표현이 된다.
+
 
