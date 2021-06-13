@@ -6,6 +6,6 @@ enum Fruit {
     Orange ,
 }
 
-console.log(Fruit.Banana);
-console.log(Fruit['Banana']);
-console.log(Fruit[5]);
+console.log(Fruit.Banana); // 5
+console.log(Fruit['Banana']); // 5
+console.log(Fruit[5]); // Banana

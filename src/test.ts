@@ -1,12 +1,6 @@
-let someValue1: any    = "this is a string";
-let strLength1: number = (<string>someValue1).length;
+export { };
 
-console.log("someValue1 : ", someValue1);
-console.log("strLength1 : ", strLength1);
+enum Color {Red = 1, Green = 2, Blue = 4}
+let c: Color = Color.Green;
 
-let someValue2: any = "this is a string";
-let strLength2: number = (someValue2 as string).length;
-
-console.log("someValue2 :", someValue2);
-console.log("strLength2 :" , strLength2);
-
+console.log("c : ", c); // c : 2

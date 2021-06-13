@@ -6,4 +6,4 @@ enum Fruit {
     Orange,
 }
 
-console.log(Fruit.Apple, Fruit.Banana, Fruit.Orange);
+console.log(Fruit.Apple, Fruit.Banana, Fruit.Orange); // 0 5 6
