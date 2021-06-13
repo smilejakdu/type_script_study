@@ -16,7 +16,6 @@ class Programmer extends Person {
 		super.sayHello();
 		console.log('저는 프로그래머 입니다.');
 	}
-
 	sayHello2() {
 		console.log('반값습니다~! 저는 프로그래머 입니다.');
 	}
