@@ -11,3 +11,16 @@ function getText(name: string, age: number): string{
 const v1: string = getText('mike', 23);
 const v2: string = getText('mike', '23');
 const v3: number = getText('mike', 23);
+
+function getStudentDetails(studentID: number): {
+	studentID: number;
+	studentName: string;
+	age: number;
+	gender: string;
+	subject: string;
+	createDate: Date;
+} {
+	return null;
+}
+
+// 하지만 이렇게 반환을 다적게 되면 복잡하기 때문에 interface 를 구현하는것을 추천한다. 
