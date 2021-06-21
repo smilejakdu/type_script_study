@@ -6,6 +6,8 @@ export { };
 // 두 매개변수를 서로 다른 타입으로 입력하면 안된다.
 
 function add(x: number | string, y: number | string): number | string {
+	// 둘다 type 이 number 일땐 그냥 더해서 return 을 하고
+	// 그게 아니라면 Number 로 타입 변환을 해주고 to.String 으로 문자열로 변환해주고있다.
 	if (typeof x === 'number' && typeof y === 'number') {
 		return x + y;
 	} else {
