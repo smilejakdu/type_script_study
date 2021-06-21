@@ -1,4 +1,9 @@
 export { };
+	
+/*
+클래스 상속을 이용한 코드이다.
+Person 을 상속받아서 , Programmer 라는 클래스를 만들었습니다.
+*/
 
 class Person {
 	sayHello() {

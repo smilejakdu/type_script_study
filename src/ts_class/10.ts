@@ -1,5 +1,9 @@
 export { };
 
+/*
+	static 변수라고도하고 , 정적 멤버변수라고도 한다.
+	각 객체와는 상관없이 고정된 값이라고 해서 정적 이라고한다.
+*/
 class Person {
 	static adultAge = 20;
 	constructor(public name: string, public age: number) { }

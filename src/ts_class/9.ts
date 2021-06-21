@@ -1,4 +1,10 @@
 export { };
+	
+/*
+getter 와 setter 
+
+
+*/
 
 class Person {
 	private _name: string = '';
