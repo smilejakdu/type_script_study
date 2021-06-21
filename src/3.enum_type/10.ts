@@ -6,7 +6,9 @@ const enum Fruit {
 	Orange,
 }
 
-const fruit: Fruit = Fruit.Apple;
+const fruit: Fruit = Fruit.Banana;
+console.log(fruit); // 1
+
 
 const enum Language {
 	Korean = 'ko',
@@ -15,6 +17,8 @@ const enum Language {
 }
 
 const lang: Language = Language.Korean;
+console.log(lang); // ko
+
 
 function getIsValidEnumValue(enumObject: any, value: number | string) {
 	if (typeof value === 'number') {

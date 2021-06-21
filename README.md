@@ -15,3 +15,16 @@ package.json 파일이 만들어진다.
 
 `npm install typescript` 를 설치한다.
 `npx tsc --init` 타입스크립트 설정파일 생성
+
+## 👉 lodash 설치
+
+npm install @types/lodash
+
+설치를 하면 자동 import 가 되고 타입정보를 좀 더 잘 볼수가 있다.
+
+## 👉단축키
+
+- Auto import : command + .
+- 멀티 선택 : 원하는 단어 선택 후 , command + d
+- 선택 취소할 때는 esc
+- 멀티 커서 : command + option + 화살표

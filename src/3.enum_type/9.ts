@@ -7,6 +7,8 @@ const enum Fruit {
 }
 
 const fruit: Fruit = Fruit.Apple;
+console.log(fruit); // 0 
+
 
 const enum Language {
 	Korean = 'ko',
@@ -15,3 +17,4 @@ const enum Language {
 }
 
 const lang: Language = Language.Korean;
+console.log(lang); // ko

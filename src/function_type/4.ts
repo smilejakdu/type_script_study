@@ -1,6 +1,9 @@
 export { };
 
 function getText(name: string, age: number = 15, language = 'korean'): string {
+	console.log('name : ', name);
+	console.log('age : ', age);
+	console.log('language : ', language);
 	return '';
 }
 

@@ -1,6 +1,9 @@
 export { };
 
 function getText(name: string, ...rest: number[]): string {
+	console.log('name : ', name);
+	console.log('rest : ' , rest);
+	
 	return '';
 }
 
