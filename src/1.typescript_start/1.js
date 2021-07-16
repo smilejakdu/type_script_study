@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const lodash_1 = require("lodash");
-const v1 = 123;
-const v2 = () => console.log("123");
-lodash_1.isEqual(v1);
+const _2_1 = require("./2");
+console.log(1 + 2);
+// control + option + n 
+_2_1.f1;
+// Auto import : command + .
+// 멀티 선택 : 원하는 단어 선택 후, command + d
+// 선택 취소할 때는 esc
+// 멀티 커서 : command + option + 화살표
