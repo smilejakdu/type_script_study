@@ -23,3 +23,8 @@ console.log('typeof "abc => ', typeof 'abc'); // string
 console.log('typeof [1,2,3] =>', typeof [1, 2, 3]); // object
 
 // typescript 는 javascript 보다 타입을 좀 더 다양하게 정의할수가 있다.
+
+// Tuple
+
+let tuple: [string, number];
+tuple = []
