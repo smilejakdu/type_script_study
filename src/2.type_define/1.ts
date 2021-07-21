@@ -27,4 +27,4 @@ console.log('typeof [1,2,3] =>', typeof [1, 2, 3]); // object
 // Tuple
 
 let tuple: [string, number];
-tuple = []
+// tuple = []

@@ -28,3 +28,13 @@ npm install @types/lodash
 - 멀티 선택 : 원하는 단어 선택 후 , command + d
 - 선택 취소할 때는 esc
 - 멀티 커서 : command + option + 화살표
+- 실행1 : control + option + n
+- 실행2 : ts-node [이름.ts]
+
+# 
+
+|제목|내용|
+|:------:|:---:|
+|몇가지 기본 타입|테스트2|
+|테스트1|테스트2|
+|테스트1|테스트2|
