@@ -7,8 +7,8 @@ enum Fruit { // 여기있는 것은 타입뿐만아니라 값으로도 사용이
 }
 
 const v1: Fruit = Fruit.Apple;
-// const v2: Fruit.Apple | Fruit.Banana = Fruit.Apple;
 const v2: Fruit.Apple | Fruit.Banana = Fruit.Banana;
+// 타입 뿐만아니라 값으로도 입력을 할 수가 있다
 
 console.log("v1 : ", v1);
 console.log("v2 : ", v2);

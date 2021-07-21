@@ -16,8 +16,8 @@ enum Language {
 	Japanese = 'jp'
 }
 
-console.log("1 in Fruit :" , getIsValidEnumValue(Fruit , 1));
-console.log("1 in Fruit :", getIsValidEnumValue(Fruit, 5));
-console.log("Orange in Fruit :", getIsValidEnumValue(Fruit, 'Orange'));
-console.log("ko in Language:", getIsValidEnumValue(Language, 'ko'));
-console.log("Korean in Language :", getIsValidEnumValue(Language, 'Korean'));
+console.log("1 in Fruit :" , getIsValidEnumValue(Fruit , 1)); // true 
+console.log("1 in Fruit :", getIsValidEnumValue(Fruit, 5)); // false
+console.log("Orange in Fruit :", getIsValidEnumValue(Fruit, 'Orange')); // false
+console.log("ko in Language:", getIsValidEnumValue(Language, 'ko')); // true
+console.log("Korean in Language :", getIsValidEnumValue(Language, 'Korean')); // false

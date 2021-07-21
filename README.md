@@ -31,7 +31,16 @@ npm install @types/lodash
 - 실행1 : control + option + n
 - 실행2 : ts-node [이름.ts]
 
-# 
+# 📌  내용
+
+### 몇가지 기본 타입1
+
+|내용|
+|:------:|
+|[몇가지 기본 타입](https://github.com/smilejakdu/type_script_study/blob/main/src/2.type_define/1.ts)|
+
+
+### 몇가지 기본 타입2
 
 |내용|
 |:------:|
@@ -43,3 +52,10 @@ npm install @types/lodash
 |[객체타입 ](https://github.com/smilejakdu/type_script_study/blob/main/src/2.type_define/6.ts)|
 |[합집합 교집합 ](https://github.com/smilejakdu/type_script_study/blob/main/src/2.type_define/7.ts)|
 |[별칭 주기](https://github.com/smilejakdu/type_script_study/blob/main/src/2.type_define/8.ts)|
+
+
+### enum 타입
+
+|내용|
+|:------:|
+|[enum소개](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/1.ts)|
