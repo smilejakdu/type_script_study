@@ -36,5 +36,5 @@ npm install @types/lodash
 |내용|
 |:------:|
 |[몇가지 기본 타입](https://github.com/smilejakdu/type_script_study/blob/main/src/2.type_define/1.ts)|
-|테스트1|테스트2|
+|null 과 undefined 도 타입으로 지정 할 수 있다.()|
 |테스트1|테스트2|
