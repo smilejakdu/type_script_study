@@ -66,3 +66,14 @@ npm install @types/lodash
 |[enum key , value true false](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/8.ts)|
 |[enum key를 할당](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/9.ts)|
 |[enum const enum](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/10.ts)|
+
+
+### 함수 타입1
+
+|내용|
+|:------:|
+|[함수 , 파라미터 타입지정](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/1.ts)|
+|[화살표 함수 이용](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/2.ts)|
+|[선택 매개변수](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/3.ts)|
+|[매개변수에 기본값 입력](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/4.ts)|
+|[나머지 매개변수](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/5.ts)|
