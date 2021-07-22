@@ -59,3 +59,4 @@ npm install @types/lodash
 |내용|
 |:------:|
 |[enum소개](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/1.ts)|
+|[자동할당](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/2.ts)|
