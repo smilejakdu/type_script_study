@@ -77,3 +77,11 @@ npm install @types/lodash
 |[선택 매개변수](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/3.ts)|
 |[매개변수에 기본값 입력](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/4.ts)|
 |[나머지 매개변수](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/5.ts)|
+
+
+### 자바스크립트 this 이해하기
+
+|내용|
+|:------:|
+|[javascript this](https://github.com/smilejakdu/type_script_study/blob/main/src/this/6-1.js)|
+
