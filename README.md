@@ -60,3 +60,9 @@ npm install @types/lodash
 |:------:|
 |[enum소개](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/1.ts)|
 |[자동할당](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/2.ts)|
+|[인덱스 혹은 키값으로 출력](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/4.ts)|
+|[enum 아이템 값 string 됨](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/5.ts)|
+|[enum key , value 양방향](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/7.ts)|
+|[enum key , value true false](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/8.ts)|
+|[enum key를 할당](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/9.ts)|
+|[enum const enum](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/10.ts)|

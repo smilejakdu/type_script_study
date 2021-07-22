@@ -30,4 +30,4 @@ function getIsValidEnumValue(enumObject: any, value: number | string) {
 	}
 }
 
-// getIsValidEnumValue(Fruit, 1); // 에러 발생함 
+getIsValidEnumValue(Fruit, 1); // 에러 발생함 --> const enum 이기 때문에 사용할 수 없다고 에러가 발생한다.
