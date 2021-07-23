@@ -2,7 +2,7 @@ export { };
 
 interface Person {
 	name: string;
-	age : number;
+	age: number;
 }
 
 interface Programmer {

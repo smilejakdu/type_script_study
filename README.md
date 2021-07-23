@@ -85,3 +85,34 @@ npm install @types/lodash
 |:------:|
 |[javascript this](https://github.com/smilejakdu/type_script_study/blob/main/src/this/6-1.js)|
 
+
+### 함수타입2
+
+|내용|
+|:------:|
+|[typescript 파라미터 this 타입설정](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/6-2.ts)|
+|[prototype 을 이용해서 내장된 타입기능을 주입](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/7.ts)|
+|[일반적인 객체에 prototype 을 이용해서 내장함수 주입](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/8.ts)|
+|[둘다 number 일때 반드시 number 로 return 된다는 보장없음](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/10.ts)|
+|[함수오버로드를 사용해서 조건을 만족하는 함수타입을 정의](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/11.ts)|
+|[named parameters 로 작성](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/12.ts)|
+|[named parameters 를 다른곳에서 사용할뗀 interface](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/13.ts)|
+|[named parameters refactoring](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/14.ts)|
+
+
+### interface
+
+|내용|
+|:------:|
+|[interface 타입설정](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/1.ts)|
+|[interface 선택속성](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/2.ts)|
+|[interface readonly 속성](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/3.ts)|
+|[interface 포함관계](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/4.ts)|
+|[interface index 타입](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/5.ts)|
+|[interface index 타입](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/7.ts)|
+|[interface 로 함수타입정의](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/8.ts)|
+|[interface 로 함수의 속성값 정의](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/9.ts)|
+|[interface 는 클래스로 구현될 수 있다.](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/10.ts)|
+|[interface 를 상속해서 새로운 interface 를확장](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/11.ts)|
+|[여러개의 interface를 확장](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/12.ts)|
+|[& 기호(교차타입)를 사용하여 여러interface 하나로 합침 ](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/13.ts)|
