@@ -33,14 +33,14 @@ npm install @types/lodash
 
 # 📌  내용
 
-### 몇가지 기본 타입1
+### 👉 몇가지 기본 타입1
 
 |내용|
 |:------:|
 |[몇가지 기본 타입](https://github.com/smilejakdu/type_script_study/blob/main/src/2.type_define/1.ts)|
 
 
-### 몇가지 기본 타입2
+### 👉 몇가지 기본 타입2
 
 |내용|
 |:------:|
@@ -54,7 +54,7 @@ npm install @types/lodash
 |[별칭 주기](https://github.com/smilejakdu/type_script_study/blob/main/src/2.type_define/8.ts)|
 
 
-### enum 타입
+### 👉 enum 타입
 
 |내용|
 |:------:|
@@ -68,7 +68,7 @@ npm install @types/lodash
 |[enum const enum](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/10.ts)|
 
 
-### 함수 타입1
+### 👉 함수 타입1
 
 |내용|
 |:------:|
@@ -79,14 +79,14 @@ npm install @types/lodash
 |[나머지 매개변수](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/5.ts)|
 
 
-### 자바스크립트 this 이해하기
+### 👉 자바스크립트 this 이해하기
 
 |내용|
 |:------:|
 |[javascript this](https://github.com/smilejakdu/type_script_study/blob/main/src/this/6-1.js)|
 
 
-### 함수타입2
+### 👉 함수타입2
 
 |내용|
 |:------:|
@@ -100,7 +100,7 @@ npm install @types/lodash
 |[named parameters refactoring](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/14.ts)|
 
 
-### interface
+### 👉 interface
 
 |내용|
 |:------:|
@@ -116,3 +116,20 @@ npm install @types/lodash
 |[interface 를 상속해서 새로운 interface 를확장](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/11.ts)|
 |[여러개의 interface를 확장](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/12.ts)|
 |[& 기호(교차타입)를 사용하여 여러interface 하나로 합침 ](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/13.ts)|
+
+
+### 👉 클래스
+
+|내용|
+|:------:|
+|[클래스 기본 구성](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/1-1.ts)|
+|[클래스 상속](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/1-2.ts)|
+|[클래스 , super , 접근제한자 , 메소드 오버라이드](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/2.ts)|
+|[private 의 다른 표현 #](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/3.ts)|
+|[private 는 상속 , 외부 모두 안된다.](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/5.ts)|
+|[protected 는 상속은 가능하나 외부에서는 사용 불가능하다](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/6.ts)|
+|[readonly 읽기전용은 값을 수정할 수 없다.](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/7.ts)|
+|[자동으로 멤버변수할당](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/8.ts)|
+|[getter 와 setter](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/9.ts)|
+|[정적멤버변수 , static 변수](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/10.ts)|
+|[추상클래스](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/11.ts)|
