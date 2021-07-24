@@ -133,3 +133,14 @@ npm install @types/lodash
 |[getter 와 setter](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/9.ts)|
 |[정적멤버변수 , static 변수](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/10.ts)|
 |[추상클래스](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/11.ts)|
+
+
+### 👉 타입호환성
+
+|내용|
+|:------:|
+|[타입 호환성](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/1.ts)|
+|[structural typing](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/4-1.ts)|
+|[타입호환성 선택속성](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/5.ts)|
+|[타입호환성 예제 Person 을 Product 에 할당](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/7.ts)|
+|[함수의 타입 호환성](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/9.ts)|

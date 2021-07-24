@@ -1,3 +1,12 @@
+/*
+	함수는 호출하는 시점에 문제가 없어야 할당 가능하다.
+
+	다음은 함수 타입 A가 함수 타입 B로 할당 가능하기 위한 조건이다.
+	1. A의 매개변수 개수가 B의 매개변수 개수보다 적어야 한다.
+	2. 같은 위치의 매개변수에 대해 B의 매개변수가 A의 매개변수로 할당 가능해야 한다.
+	3. A의 반환값은 B의 반환값으로 할당 가능해야 한다.
+*/
+
 type F1 = (a: number, b: string) => string;
 type F2 = (a: number, b: string | number) => string;
 type F3 = (a: number) => string;
