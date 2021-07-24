@@ -161,6 +161,7 @@ npm install @types/lodash
 |[제네릭을 이용해서 원하는 타입을 제한가능](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/7.ts)|
 
 ### 👉 맵드 타입
+
 인터페이스가 있을때 인터페이스에 있는 모든 속성을 optional 로 바꾸거나 readonly 로 바꾸는 일을 맵드 타입을 이용해서 할수 있다.
 맵드 타입은 `in` 이라는 키워드를 사용한다.
 
@@ -174,3 +175,16 @@ npm install @types/lodash
 |[유틸리티 타입 Record](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/6.ts)|
 |[맵드 타입을 이용해서 enum 활용](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/7.ts)|
 |[맵드 타입을 이용해서 enum 활용2](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/8.ts)|
+
+
+### 👉 타입 추론
+
+타입을 지정하지 않아도 자동으로 타입을 지정해 줍니다.
+
+|내용|
+|:------:|
+|[타입 추론](https://github.com/smilejakdu/type_script_study/blob/main/src/type_inference/1.ts)|
+|[const 타입 추론](https://github.com/smilejakdu/type_script_study/blob/main/src/type_inference/2.ts)|
+|[비구조화 할당 타입 추론](https://github.com/smilejakdu/type_script_study/blob/main/src/type_inference/3.ts)|
+|[interface 타입 추론](https://github.com/smilejakdu/type_script_study/blob/main/src/type_inference/4.ts)|
+|[함수 타입 추론](https://github.com/smilejakdu/type_script_study/blob/main/src/type_inference/5.ts)|
