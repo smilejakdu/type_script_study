@@ -144,3 +144,33 @@ npm install @types/lodash
 |[타입호환성 선택속성](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/5.ts)|
 |[타입호환성 예제 Person 을 Product 에 할당](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/7.ts)|
 |[함수의 타입 호환성](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/9.ts)|
+
+
+### 👉 제네릭
+
+제네릭은 타입 정보가 동적으로 결정되는 타입이다.
+
+|내용|
+|:------:|
+|[제네릭을 사용하지않고 숫자형 문자형에 따른 함수분리](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/1.ts)|
+|[제네릭을 사용하지않고 오버로드](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/2.ts)|
+|[제네릭 사용법 <T>](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/3.ts)|
+|[제네릭은 데이터의 타입에 다양성을 부여해준다.](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/4.ts)|
+|[A extends B](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/5.ts)|
+|[extends 키워드 자세히 알아보기](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/6.ts)|
+|[제네릭을 이용해서 원하는 타입을 제한가능](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/7.ts)|
+
+### 👉 맵드 타입
+인터페이스가 있을때 인터페이스에 있는 모든 속성을 optional 로 바꾸거나 readonly 로 바꾸는 일을 맵드 타입을 이용해서 할수 있다.
+맵드 타입은 `in` 이라는 키워드를 사용한다.
+
+|내용|
+|:------:|
+|[제네릭을 사용하지않고 숫자형 문자형에 따른 함수분리](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/1.ts)|
+|[맵드타입의 문법 ](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/2.ts)|
+|[입력된 인터페이스의 모든 속성을 boolean 타입으로 만들어 주는 맵드 타입](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/3.ts)|
+|[유틸리티 타입 Partial , Readonly](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/4.ts)|
+|[유틸리티 타입 Pick](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/5.ts)|
+|[유틸리티 타입 Record](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/6.ts)|
+|[맵드 타입을 이용해서 enum 활용](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/7.ts)|
+|[맵드 타입을 이용해서 enum 활용2](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/8.ts)|
