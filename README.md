@@ -64,7 +64,7 @@ npm install @types/lodash
 |[enum 아이템 값 string 됨](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/5.ts)|
 |[enum key , value 양방향](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/7.ts)|
 |[enum key , value true false](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/8.ts)|
-|[enum key를 할당](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/9.ts)|
+|[enum const 를 사용하면 컴파일후에 파일을 생성하지않는다. => 번들파일 크기를 줄일수있다.](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/9.ts)|
 |[enum const enum](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/10.ts)|
 
 
@@ -202,3 +202,8 @@ npm install @types/lodash
 |[switch 문을 사용하기](https://github.com/smilejakdu/type_script_study/blob/main/src/type_guard/7.ts)|
 |[타입을 검사하는 함수만들기](https://github.com/smilejakdu/type_script_study/blob/main/src/type_guard/8.ts)|
 |[함수를 작성하는게 번걸보다면 in 키워드를 사용할것](https://github.com/smilejakdu/type_script_study/blob/main/src/type_guard/9.ts)|
+
+
+### 👉 실습 프로젝트
+
+https://github.com/landvibe/inflearn-react-project
