@@ -109,48 +109,50 @@ npm install @types/lodash
 
 ### 👉 interface
 
+자바와같은 다른 언어에서 인터페이스는 클래스를 구현하기 전에 필요한 메서드를 정의하는 용도로 쓰입니다.
+
 |내용|
 |:------:|
-|[interface 타입설정](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/1.ts)|
-|[interface 선택속성](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/2.ts)|
-|[interface readonly 속성](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/3.ts)|
-|[interface 포함관계](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/4.ts)|
-|[interface index 타입](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/5.ts)|
-|[interface index 타입](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/7.ts)|
-|[interface 로 함수타입정의](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/8.ts)|
-|[interface 로 함수의 속성값 정의](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/9.ts)|
-|[interface 는 클래스로 구현될 수 있다.](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/10.ts)|
-|[interface 를 상속해서 새로운 interface 를확장](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/11.ts)|
-|[여러개의 interface를 확장](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/12.ts)|
-|[& 기호(교차타입)를 사용하여 여러interface 하나로 합침 ](https://github.com/smilejakdu/type_script_study/blob/main/src/interface/13.ts)|
+|[interface 타입설정](https://github.com/smilejakdu/type_script_study/blob/main/src/7.interface/1.ts)|
+|[interface 선택속성](https://github.com/smilejakdu/type_script_study/blob/main/src/7.interface/2.ts)|
+|[interface readonly 속성](https://github.com/smilejakdu/type_script_study/blob/main/src/7.interface/3.ts)|
+|[interface 포함관계](https://github.com/smilejakdu/type_script_study/blob/main/src/7.interface/4.ts)|
+|[interface index 타입](https://github.com/smilejakdu/type_script_study/blob/main/src/7.interface/5.ts)|
+|[interface index 타입](https://github.com/smilejakdu/type_script_study/blob/main/src/7.interface/7.ts)|
+|[interface 로 함수타입정의](https://github.com/smilejakdu/type_script_study/blob/main/src/7.interface/8.ts)|
+|[interface 로 함수의 속성값 정의](https://github.com/smilejakdu/type_script_study/blob/main/src/7.interface/9.ts)|
+|[interface 는 클래스로 구현될 수 있다.](https://github.com/smilejakdu/type_script_study/blob/main/src/7.interface/10.ts)|
+|[interface 를 상속해서 새로운 interface 를확장](https://github.com/smilejakdu/type_script_study/blob/main/src/7.interface/11.ts)|
+|[여러개의 interface를 확장](https://github.com/smilejakdu/type_script_study/blob/main/src/7.interface/12.ts)|
+|[& 기호(교차타입)를 사용하여 여러interface 하나로 합침 ](https://github.com/smilejakdu/type_script_study/blob/main/src/7.interface/13.ts)|
 
 
 ### 👉 클래스
 
 |내용|
 |:------:|
-|[클래스 기본 구성](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/1-1.ts)|
-|[클래스 상속](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/1-2.ts)|
-|[클래스 , super , 접근제한자 , 메소드 오버라이드](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/2.ts)|
-|[private 의 다른 표현 #](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/3.ts)|
-|[private 는 상속 , 외부 모두 안된다.](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/5.ts)|
-|[protected 는 상속은 가능하나 외부에서는 사용 불가능하다](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/6.ts)|
-|[readonly 읽기전용은 값을 수정할 수 없다.](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/7.ts)|
-|[자동으로 멤버변수할당](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/8.ts)|
-|[getter 와 setter](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/9.ts)|
-|[정적멤버변수 , static 변수](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/10.ts)|
-|[추상클래스](https://github.com/smilejakdu/type_script_study/blob/main/src/ts_class/11.ts)|
+|[클래스 기본 구성](https://github.com/smilejakdu/type_script_study/blob/main/src/8.ts_class/1-1.ts)|
+|[클래스 상속](https://github.com/smilejakdu/type_script_study/blob/main/src/8.ts_class/1-2.ts)|
+|[클래스 , super , 접근제한자 , 메소드 오버라이드](https://github.com/smilejakdu/type_script_study/blob/main/src/8.ts_class/2.ts)|
+|[private 의 다른 표현 #](https://github.com/smilejakdu/type_script_study/blob/main/src/8.ts_class/3.ts)|
+|[private 는 상속 , 외부 모두 안된다.](https://github.com/smilejakdu/type_script_study/blob/main/src/8.ts_class/5.ts)|
+|[protected 는 상속은 가능하나 외부에서는 사용 불가능하다](https://github.com/smilejakdu/type_script_study/blob/main/src/8.ts_class/6.ts)|
+|[readonly 읽기전용은 값을 수정할 수 없다.](https://github.com/smilejakdu/type_script_study/blob/main/src/8.ts_class/7.ts)|
+|[자동으로 멤버변수할당](https://github.com/smilejakdu/type_script_study/blob/main/src/8.ts_class/8.ts)|
+|[getter 와 setter](https://github.com/smilejakdu/type_script_study/blob/main/src/8.ts_class/9.ts)|
+|[정적멤버변수 , static 변수](https://github.com/smilejakdu/type_script_study/blob/main/src/8.ts_class/10.ts)|
+|[추상클래스](https://github.com/smilejakdu/type_script_study/blob/main/src/8.ts_class/11.ts)|
 
 
 ### 👉 타입호환성
 
 |내용|
 |:------:|
-|[타입 호환성](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/1.ts)|
-|[structural typing](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/4-1.ts)|
-|[타입호환성 선택속성](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/5.ts)|
-|[타입호환성 예제 Person 을 Product 에 할당](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/7.ts)|
-|[함수의 타입 호환성](https://github.com/smilejakdu/type_script_study/blob/main/src/type_compatibility/9.ts)|
+|[타입 호환성](https://github.com/smilejakdu/type_script_study/blob/main/src/9.type_compatibility/1.ts)|
+|[structural typing](https://github.com/smilejakdu/type_script_study/blob/main/src/9.type_compatibility/4-1.ts)|
+|[타입호환성 선택속성](https://github.com/smilejakdu/type_script_study/blob/main/src/9.type_compatibility/5.ts)|
+|[타입호환성 예제 Person 을 Product 에 할당](https://github.com/smilejakdu/type_script_study/blob/main/src/9.type_compatibility/7.ts)|
+|[함수의 타입 호환성](https://github.com/smilejakdu/type_script_study/blob/main/src/9.type_compatibility/9.ts)|
 
 
 ### 👉 제네릭
@@ -159,13 +161,13 @@ npm install @types/lodash
 
 |내용|
 |:------:|
-|[제네릭을 사용하지않고 숫자형 문자형에 따른 함수분리](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/1.ts)|
-|[제네릭을 사용하지않고 오버로드](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/2.ts)|
-|[제네릭 사용법 <T>](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/3.ts)|
-|[제네릭은 데이터의 타입에 다양성을 부여해준다.](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/4.ts)|
-|[A extends B](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/5.ts)|
-|[extends 키워드 자세히 알아보기](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/6.ts)|
-|[제네릭을 이용해서 원하는 타입을 제한가능](https://github.com/smilejakdu/type_script_study/blob/main/src/generic/7.ts)|
+|[제네릭을 사용하지않고 숫자형 문자형에 따른 함수분리](https://github.com/smilejakdu/type_script_study/blob/main/src/10.generic/1.ts)|
+|[제네릭을 사용하지않고 오버로드](https://github.com/smilejakdu/type_script_study/blob/main/src/10.generic/2.ts)|
+|[제네릭 사용법 <T>](https://github.com/smilejakdu/type_script_study/blob/main/src/10.generic/3.ts)|
+|[제네릭은 데이터의 타입에 다양성을 부여해준다.](https://github.com/smilejakdu/type_script_study/blob/main/src/10.generic/4.ts)|
+|[A extends B](https://github.com/smilejakdu/type_script_study/blob/main/src/10.generic/5.ts)|
+|[extends 키워드 자세히 알아보기](https://github.com/smilejakdu/type_script_study/blob/main/src/10.generic/6.ts)|
+|[제네릭을 이용해서 원하는 타입을 제한가능](https://github.com/smilejakdu/type_script_study/blob/main/src/10.generic/7.ts)|
 
 ### 👉 맵드 타입
 
@@ -174,14 +176,14 @@ npm install @types/lodash
 
 |내용|
 |:------:|
-|[제네릭을 사용하지않고 숫자형 문자형에 따른 함수분리](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/1.ts)|
-|[맵드타입의 문법 ](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/2.ts)|
-|[입력된 인터페이스의 모든 속성을 boolean 타입으로 만들어 주는 맵드 타입](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/3.ts)|
-|[유틸리티 타입 Partial , Readonly](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/4.ts)|
-|[유틸리티 타입 Pick](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/5.ts)|
-|[유틸리티 타입 Record](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/6.ts)|
-|[맵드 타입을 이용해서 enum 활용](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/7.ts)|
-|[맵드 타입을 이용해서 enum 활용2](https://github.com/smilejakdu/type_script_study/blob/main/src/mapped_type/8.ts)|
+|[제네릭을 사용하지않고 숫자형 문자형에 따른 함수분리](https://github.com/smilejakdu/type_script_study/blob/main/src/11.mapped_type/1.ts)|
+|[맵드타입의 문법 ](https://github.com/smilejakdu/type_script_study/blob/main/src/11.mapped_type/2.ts)|
+|[입력된 인터페이스의 모든 속성을 boolean 타입으로 만들어 주는 맵드 타입](https://github.com/smilejakdu/type_script_study/blob/main/src/11.mapped_type/3.ts)|
+|[유틸리티 타입 Partial , Readonly](https://github.com/smilejakdu/type_script_study/blob/main/src/11.mapped_type/4.ts)|
+|[유틸리티 타입 Pick](https://github.com/smilejakdu/type_script_study/blob/main/src/11.mapped_type/5.ts)|
+|[유틸리티 타입 Record](https://github.com/smilejakdu/type_script_study/blob/main/src/11.mapped_type/6.ts)|
+|[맵드 타입을 이용해서 enum 활용](https://github.com/smilejakdu/type_script_study/blob/main/src/11.mapped_type/7.ts)|
+|[맵드 타입을 이용해서 enum 활용2](https://github.com/smilejakdu/type_script_study/blob/main/src/11.mapped_type/8.ts)|
 
 
 ### 👉 타입 추론
