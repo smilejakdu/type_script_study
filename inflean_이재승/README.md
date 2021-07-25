@@ -13,8 +13,15 @@ package.json 파일이 만들어진다.
 
 그럼 이제 package 를 설치할 수 있게 된다. 
 
-`npm install typescript` 를 설치한다.
+`npm install typescript` 를 설치한다. 아니면 `npm install -g typescript` 라고 해도 된다
 `npx tsc --init` 타입스크립트 설정파일 생성
+
+# 📌tsc -w 
+
+자 그래서 이제  `test.ts` 를 만들고 코드를 돌려볼려고 하면 안돌아간다. 왜일까 ??
+브라우저가 못 읽어서 그렇다. 브라우저는 무조건 자바스크립트 파일만 읽을수가 있다. 그래서 무조건 자바스크립트 파일을 변환해서 활용을 해야한다.
+그것을 `tsc -w` 명령어를 입력하게 되면 ts 파일을 자동으로 자바스크립트 파일로 변환을 한다.
+
 
 ## 👉 lodash 설치
 
