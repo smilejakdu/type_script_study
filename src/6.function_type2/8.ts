@@ -1,4 +1,4 @@
-export { };
+// export { };
 interface Object {
 	getShortKeys(this: object): string[];
 }
@@ -14,4 +14,4 @@ const obj = {
 	dddd : 4,
 }
 
-console.log(obj.getShortKeys());
+console.log(obj.getShortKeys()); //[ 'a', 'bb', 'ccc' ]

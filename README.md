@@ -93,6 +93,8 @@ npm install @types/lodash
 
 ### 👉 함수타입2
 
+- 앞서 javascript this 에 대해 배웠고 typescript 에서의 this 는??
+
 |내용|
 |:------:|
 |[typescript 파라미터 this 타입설정](https://github.com/smilejakdu/type_script_study/blob/main/src/6.function_type2/6-2.ts)|

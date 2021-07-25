@@ -1,4 +1,4 @@
-export { };
+// export { };
 
 function getParam(this:string , index: number): string{
 	const params = this.split(','); // this 정의를 안해서 에러를 발생
