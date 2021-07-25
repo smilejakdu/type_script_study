@@ -9,8 +9,8 @@ function getText(name: string, age: number): string{
 
 
 const v1: string = getText('mike', 23);
-const v2: string = getText('mike', '23');
-const v3: number = getText('mike', 23);
+const v2: string = getText('mike', '23'); // age 는 number 
+const v3: number = getText('mike', 23); // getText 함수에서 return 은 string 이다.
 
 function getStudentDetails(studentID: number): {
 	studentID: number;

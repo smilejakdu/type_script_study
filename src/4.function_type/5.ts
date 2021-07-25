@@ -1,5 +1,7 @@
 export { };
 
+// 나머지 매개변수 (rest parameter)
+// rest parameter 는 항상 배열로 정의를 해야한다.
 function getText(name: string, ...rest: number[]): string {
 	console.log('name : ', name);
 	console.log('rest : ' , rest);
