@@ -188,3 +188,17 @@ npm install @types/lodash
 |[비구조화 할당 타입 추론](https://github.com/smilejakdu/type_script_study/blob/main/src/type_inference/3.ts)|
 |[interface 타입 추론](https://github.com/smilejakdu/type_script_study/blob/main/src/type_inference/4.ts)|
 |[함수 타입 추론](https://github.com/smilejakdu/type_script_study/blob/main/src/type_inference/5.ts)|
+
+### 👉 타입 가드
+타입가드는 자동으로 타입의 범위를 좁혀주는 타입스크립트의 기능이다.
+타입가드를 잘 활용하면 `as` 와 같은 타입 단언 코드를 피할수있다.
+
+|내용|
+|:------:|
+|[as 를 자주사용하지 말자](https://github.com/smilejakdu/type_script_study/blob/main/src/type_guard/1.ts)|
+|[클래스의 경우는 instanceof 키워드를 사용할 수있다.](https://github.com/smilejakdu/type_script_study/blob/main/src/type_guard/3.ts)|
+|[interface 는 타입을 위한 코드이기때문에 컴파일후에는 제거가 된다.](https://github.com/smilejakdu/type_script_study/blob/main/src/type_guard/4.ts)|
+|[interface 를 구별하기 위한 한가지방법은 유니온타입사용 ](https://github.com/smilejakdu/type_script_study/blob/main/src/type_guard/5.ts)|
+|[switch 문을 사용하기](https://github.com/smilejakdu/type_script_study/blob/main/src/type_guard/7.ts)|
+|[타입을 검사하는 함수만들기](https://github.com/smilejakdu/type_script_study/blob/main/src/type_guard/8.ts)|
+|[함수를 작성하는게 번걸보다면 in 키워드를 사용할것](https://github.com/smilejakdu/type_script_study/blob/main/src/type_guard/9.ts)|
