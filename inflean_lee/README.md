@@ -168,7 +168,7 @@ npm install @types/lodash
 
 |내용|
 |:------:|
-|[제네릭을 사용하지않고 숫자형 문자형에 따른 함수분리](https://github.com/smilejakdu/type_script_study/blob/main/src/10.generic/1.ts)|
+|[제네릭을 사용하지않고 숫자형 문자형에 따른 함수분리](https://github.com/smilejakdu/typescript_study/blob/main/inflean_%EC%9D%B4%EC%9E%AC%EC%8A%B9/src/10.generic/1.ts)|
 |[제네릭을 사용하지않고 오버로드](https://github.com/smilejakdu/type_script_study/blob/main/src/10.generic/2.ts)|
 |[제네릭 사용법 <T>](https://github.com/smilejakdu/type_script_study/blob/main/src/10.generic/3.ts)|
 |[제네릭은 데이터의 타입에 다양성을 부여해준다.](https://github.com/smilejakdu/type_script_study/blob/main/src/10.generic/4.ts)|
