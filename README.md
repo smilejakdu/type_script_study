@@ -56,6 +56,9 @@ npm install @types/lodash
 
 ### 👉 enum 타입
 
+- 양방향 , 단방향 이해할것
+- enum const 
+
 |내용|
 |:------:|
 |[enum소개](https://github.com/smilejakdu/type_script_study/blob/main/src/3.enum_type/1.ts)|
@@ -72,32 +75,34 @@ npm install @types/lodash
 
 |내용|
 |:------:|
-|[함수 , 파라미터 타입지정](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/1.ts)|
-|[화살표 함수 이용](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/2.ts)|
-|[선택 매개변수](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/3.ts)|
-|[매개변수에 기본값 입력](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/4.ts)|
-|[나머지 매개변수](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type/5.ts)|
+|[함수 , 파라미터 타입지정](https://github.com/smilejakdu/type_script_study/blob/main/src/4.function_type/1.ts)|
+|[화살표 함수 이용](https://github.com/smilejakdu/type_script_study/blob/main/src/4.function_type/2.ts)|
+|[선택 매개변수](https://github.com/smilejakdu/type_script_study/blob/main/src/4.function_type/3.ts)|
+|[매개변수에 기본값 입력](https://github.com/smilejakdu/type_script_study/blob/main/src/4.function_type/4.ts)|
+|[나머지 매개변수](https://github.com/smilejakdu/type_script_study/blob/main/src/4.function_type/5.ts)|
 
 
 ### 👉 자바스크립트 this 이해하기
 
+- 화살표함수에서의 this 와 그냥 함수에서의 this 이해하기
+
 |내용|
 |:------:|
-|[javascript this](https://github.com/smilejakdu/type_script_study/blob/main/src/this/6-1.js)|
+|[javascript this](https://github.com/smilejakdu/type_script_study/blob/main/src/5.this/6-1.js)|
 
 
 ### 👉 함수타입2
 
 |내용|
 |:------:|
-|[typescript 파라미터 this 타입설정](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/6-2.ts)|
-|[prototype 을 이용해서 내장된 타입기능을 주입](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/7.ts)|
-|[일반적인 객체에 prototype 을 이용해서 내장함수 주입](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/8.ts)|
-|[둘다 number 일때 반드시 number 로 return 된다는 보장없음](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/10.ts)|
-|[함수오버로드를 사용해서 조건을 만족하는 함수타입을 정의](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/11.ts)|
-|[named parameters 로 작성](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/12.ts)|
-|[named parameters 를 다른곳에서 사용할뗀 interface](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/13.ts)|
-|[named parameters refactoring](https://github.com/smilejakdu/type_script_study/blob/main/src/function_type2/14.ts)|
+|[typescript 파라미터 this 타입설정](https://github.com/smilejakdu/type_script_study/blob/main/src/6.function_type2/6-2.ts)|
+|[prototype 을 이용해서 내장된 타입기능을 주입](https://github.com/smilejakdu/type_script_study/blob/main/src/6.function_type2/7.ts)|
+|[일반적인 객체에 prototype 을 이용해서 내장함수 주입](https://github.com/smilejakdu/type_script_study/blob/main/src/6.function_type2/8.ts)|
+|[둘다 number 일때 반드시 number 로 return 된다는 보장없음](https://github.com/smilejakdu/type_script_study/blob/main/src/6.function_type2/10.ts)|
+|[함수오버로드를 사용해서 조건을 만족하는 함수타입을 정의](https://github.com/smilejakdu/type_script_study/blob/main/src/6.function_type2/11.ts)|
+|[named parameters 로 작성](https://github.com/smilejakdu/type_script_study/blob/main/src/6.function_type2/12.ts)|
+|[named parameters 를 다른곳에서 사용할뗀 interface](https://github.com/smilejakdu/type_script_study/blob/main/src/6.function_type2/13.ts)|
+|[named parameters refactoring](https://github.com/smilejakdu/type_script_study/blob/main/src/6.function_type2/14.ts)|
 
 
 ### 👉 interface
