@@ -3,6 +3,8 @@
 
 https://www.youtube.com/watch?v=5oGAkQsGWkc&list=PLZKTXPmaJk8KhKQ_BILr1JKCJbR0EGlx0
 
+코딩앙마 유투브 영상을 보고 메모했습니다.
+
 |내용|
 |:------:|
 |[타입스크립트를 쓰는 이유](https://github.com/smilejakdu/typescript_study/blob/main/coding_devil/1.md)|
