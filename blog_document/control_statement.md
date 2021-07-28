@@ -41,3 +41,4 @@ switch(str:string | number) {
         break;
 }
 ```
+

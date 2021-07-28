@@ -17,4 +17,10 @@
 
 |내용|
 |:------:|
-|[제어문](https://github.com/smilejakdu/typescript_study/tree/main/inflean_lee)|
+|[deep dive](https://radlohead.gitbook.io/typescript-deep-dive/)|
+
+# 📌 문법정리
+
+|내용|
+|:------:|
+|[문법정리](https://velog.io/@ash3767/typescript-grammar)|
