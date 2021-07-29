@@ -26,3 +26,9 @@
 |내용|
 |:------:|
 |[문법정리](https://velog.io/@ash3767/typescript-grammar)|
+
+# 📌 node typescript
+
+|내용|
+|:------:|
+|[문법정리](https://velog.io/@ash3767/typescript-grammar)|
