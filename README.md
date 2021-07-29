@@ -28,7 +28,7 @@
 |[문법정리](https://velog.io/@ash3767/typescript-grammar)|
 
 # 📌 node typescript
-
+제로초님 강의를 듣고 정리했습니다.
 |내용|
 |:------:|
-|[초기셋팅](https://velog.io/@ash3767/typescript-grammar)|
+|[초기셋팅](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/1.init_settings.md)|
