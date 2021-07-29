@@ -31,4 +31,4 @@
 
 |내용|
 |:------:|
-|[문법정리](https://velog.io/@ash3767/typescript-grammar)|
+|[초기셋팅](https://velog.io/@ash3767/typescript-grammar)|
