@@ -14,3 +14,4 @@ https://www.youtube.com/watch?v=5oGAkQsGWkc&list=PLZKTXPmaJk8KhKQ_BILr1JKCJbR0EG
 |[유니온 교차타입](https://github.com/smilejakdu/typescript_study/blob/main/coding_devil/5.union_intersaction.md)|
 |[클래스](https://github.com/smilejakdu/typescript_study/blob/main/coding_devil/6.class.md)|
 |[제네릭](https://github.com/smilejakdu/typescript_study/blob/main/coding_devil/7.generic.md)|
+|[유틸리티 타입](https://github.com/smilejakdu/typescript_study/blob/main/coding_devil/8.utility_types.md)|
