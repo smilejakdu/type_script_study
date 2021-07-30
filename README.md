@@ -32,3 +32,5 @@
 |내용|
 |:------:|
 |[초기셋팅](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/1.init_settings.md)|
+|[express 와 ts-node](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/2.express_ts-node.md)|
+|[module resolution](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/3.module_resolution.md)|
