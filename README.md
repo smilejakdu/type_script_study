@@ -50,6 +50,8 @@
 |[sequlize_relation_method](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/12.sequlize_relation_method.md)|
 |[user post router](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/13.user_post_router.md)|
 |[router 완성하기](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/14.router_complete.md)|
+|[타입스크립트가 못 하는것](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/15.typescript_cant.md)|
+|[타입스크립트가 못 하는것](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/16.typing_efficiently.md)|
 
 ## 👉 라이브러리에 타이핑 적용하기
 ## 👉 직접 타입스크립트 라이브러리 만들기
