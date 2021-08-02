@@ -36,4 +36,11 @@
 |[module resolution](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/3.module_resolution.md)|
 |[express middleware](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/4.express_middle.md)|
 |[sequelize](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/5.sequelize.md)|
+|[sequelize_models](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/6.sequelize_models.md)|
+|[passport_setting](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/7.passport_setting.md)|
+|[router_make](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/8.router_make.md)|
+|[files_typeRoots](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/9.files_typeRoots.md)|
+|[ambient_module](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/10.ambient_module.md)|
+|[interface_modify](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/11.interface_modify.md)|
+|[sequlize_relation_method](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/12.sequlize_relation_method.md)|
 
