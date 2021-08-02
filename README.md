@@ -43,4 +43,6 @@
 |[ambient_module](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/10.ambient_module.md)|
 |[interface_modify](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/11.interface_modify.md)|
 |[sequlize_relation_method](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/12.sequlize_relation_method.md)|
+|[user post router](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/13.user_post_router.md)|
+|[router 완성하기](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/14.router_complete.md)|
 
