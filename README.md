@@ -20,7 +20,6 @@
 |[deep dive](https://radlohead.gitbook.io/typescript-deep-dive/)|
 |[heropy](https://heropy.blog/2020/01/27/typescript/)|
 
-
 # 📌 문법정리
 
 |내용|
@@ -51,9 +50,14 @@
 |[user post router](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/13.user_post_router.md)|
 |[router 완성하기](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/14.router_complete.md)|
 |[타입스크립트가 못 하는것](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/15.typescript_cant.md)|
-|[타입스크립트가 못 하는것](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/16.typing_efficiently.md)|
+|[타이핑 효율적으로 하기](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/16.typing_efficiently.md)|
 
 ## 👉 라이브러리에 타이핑 적용하기
+
+|내용|
+|:------:|
+|[타입 없는 라이브러리 타이핑하기](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/17.library_typing_without_type.md)|
+
 ## 👉 직접 타입스크립트 라이브러리 만들기
 
 # 📌 node nest js
