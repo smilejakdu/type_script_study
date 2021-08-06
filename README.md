@@ -59,9 +59,14 @@
 |[타입 없는 라이브러리 타이핑하기](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/17.library_typing_without_type.md)|
 |[다양한 케이스 커버를 위한 오버로딩](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript/18.overroading_for_mutiple_case_cover.md)|
 
-## 👉 직접 타입스크립트 라이브러리 만들기
+# 📌 nest js
+
+|내용|
+|:------:|
+|[express 와의 비교](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/1.express_and_nest.md)|
+|[nestJS 셋팅](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/2.nestjs_setting.md)|
+
 
 # 📌 node project
 [node express typescript](https://github.com/smilejakdu/node-watcha)
 
-# 📌 node nest js
