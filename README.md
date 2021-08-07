@@ -65,6 +65,7 @@
 |:------:|
 |[express 와의 비교](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/1.express_and_nest.md)|
 |[nestJS 셋팅](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/2.nestjs_setting.md)|
+|[핫 리로딩 설정하기](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/3.hot_reloading.md)|
 
 
 # 📌 node project
