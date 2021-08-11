@@ -132,6 +132,7 @@ npm install @types/lodash
 |[interface 를 상속해서 새로운 interface 를확장](https://github.com/smilejakdu/type_script_study/blob/main/inflean_lee/src/7.interface/11.ts)|
 |[여러개의 interface를 확장](https://github.com/smilejakdu/type_script_study/blob/main/inflean_lee/src/7.interface/12.ts)|
 |[& 기호(교차타입)를 사용하여 여러interface 하나로 합침 ](https://github.com/smilejakdu/type_script_study/blob/main/inflean_lee/src/7.interface/13.ts)|
+|[interface 와 index 타입 적용](https://github.com/smilejakdu/type_script_study/blob/main/inflean_lee/src/7.interface/14.ts)|
 
 
 ### 👉 클래스
