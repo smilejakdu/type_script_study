@@ -13,4 +13,4 @@ interface String {
 }
 
 String.prototype.getParam = getParam;
-console.log("asdf , 123 , ok : ".getParam(1));
+console.log("asdf , 123 , ok : ".getParam(1)); // 123

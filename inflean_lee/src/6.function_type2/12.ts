@@ -14,5 +14,8 @@ function getText({
 	return `name: ${nameText} , age: ${ageText} , language: ${language}`;
 }
 
-getText({name : 'aaa'})
-getText({name : 'bbb',age:11 , language: ''}) // age 와 language 는 optional 이라서 입력하지않아도 된다.
+console.log(getText({ name: 'aaa' }))
+// name: aaa , age: junior , language: undefined
+console.log(getText({ name: 'bbb', age: 11, language: '' }))
+// age 와 language 는 optional 이라서 입력하지않아도 된다.
+// name: bbb , age: junior , language:

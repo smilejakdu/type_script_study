@@ -1,11 +1,13 @@
 export { };
 
 enum Fruit {
-    Apple, 
+    Apple,
     Banana = 5,
-    Orange ,
+    Orange,
 }
 
-console.log(Fruit.Banana); // 5
-console.log(Fruit['Banana']); // 5
-console.log(Fruit[5]); // Banana
+console.log(Fruit.Banana); //0
+console.log(Fruit['Banana']); //5
+console.log(Fruit[5]); //5
+
+// enum 에 값을 할당하지 않으면 자동으로 0 이 할당된다.
