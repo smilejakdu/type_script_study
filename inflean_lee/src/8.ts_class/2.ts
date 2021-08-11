@@ -1,5 +1,12 @@
 export { };
 
+// public , protected , private 
+// 대부분의 다른 언어에서는 이렇게 3가지 접근제한자를 둘 수가 있다.
+// public 은 외부에도 노출을 하고 상속받는쪽에서도 노출을 하게된다.
+// private 은 외부에도 노출하지 않고 , 상속받는 쪽에도 노출하지 않는다.
+// protected 는 외부에는 노출하지 않지만 , 상속받는 쪽에만 노출한다.
+	
+
 class Person{
 	private name: string;
 	constructor(name: string) {
@@ -9,12 +16,6 @@ class Person{
 		console.log(`안녕하세요 저는 ${this.name} 입니다.`);
 	}
 }
-
-// public , protected , private 
-// 대부분의 다른 언어에서는 이렇게 3가지 접근제한자를 둘 수가 있다.
-// public 은 외부에도 노출을 하고 상속받는쪽에서도 노출을 하게된다.
-// private 은 외부에도 노출하지 않고 , 상속받는 쪽에도 노출하지 않는다.
-// protected 는 외부에는 노출하지 않지만 , 상속받는 쪽에만 노출한다.
 
 class Programmer extends Person { 
 	constructor(name: string) {
@@ -32,12 +33,14 @@ class Docter extends Person {
 		super(name);
 	}
 	sayHello() {
-		super.sayHello();
+		super.sayHello(); // 부모에 있는 sayHello() 메서드를 호출하게 된다.
 		console.log('저는 의사 입니다');
 	}
 }
 
 const programmer = new Programmer('홍길동');
-programmer.sayHello();
+programmer.sayHello(); // 안녕하세요 저는 홍길동 입니다.
+
+
 console.log(programmer.name);
 

@@ -10,10 +10,18 @@ class Person {
 	protected constructor(name: string) {
 		this.name = name;
 	}
+	sayHello() {
+		console.log(`안녕하세요 저는 ${this.name} 입니다.`);
+	}
 }
 
 class Programmer extends Person {
+	constructor(name: string) {
+		super(name);
+	}
 	sayHello() {
+		super.sayHello();
+		this.name;
 		console.log(`안녕하세요 저는 ${this.name} 입니다.`);
 	}
 }
