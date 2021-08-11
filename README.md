@@ -61,11 +61,18 @@
 
 # 📌 nest js
 
+## 👉 첫번째 섹션의 제목을 입력해주세요.
+
 |내용|
 |:------:|
 |[express 와의 비교](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/1.express_and_nest.md)|
 |[nestJS 셋팅](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/2.nestjs_setting.md)|
 |[핫 리로딩 설정하기](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/3.hot_reloading.md)|
+|[controller 기본](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/4.controller_basic.md)|
+|[서비스를 분리하는 이유 , 컨트롤러 장점](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/5.services_controller_merit.md)|
+|[dotenv , morgan 미들웨어 구현하기](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/6.dotenv_morgan_middleware.md)|
+
+## 👉 API 설계하기
 
 
 # 📌 node project
