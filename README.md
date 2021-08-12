@@ -42,4 +42,5 @@
 
 # 📌 node project
 [node express typescript](https://github.com/smilejakdu/node-watcha)
+[node NestJS clone](https://github.com/smilejakdu/node-bird-nest-clone)
 
