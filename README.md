@@ -38,7 +38,7 @@
 
 |내용|
 |:------:|
-|[Nest Js](https://github.com/smilejakdu/typescript_study/blob/main/nestjs)|
+|[Nest JS](https://github.com/smilejakdu/typescript_study/blob/main/nestjs)|
 
 # 📌 node project
 [node express typescript](https://github.com/smilejakdu/node-watcha)

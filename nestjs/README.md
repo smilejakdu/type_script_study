@@ -22,3 +22,8 @@
 |[body , query , param](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/2-2.body_query_param.md)|
 |[나머지 api 설계하기](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/2-3.design_rest_api.md)|
 |[api 문서 만들기 swagger](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/2-4.api_document_swagger.md)|
+|[커스텀 데코레이터 만들기](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/2-5.custom_decorator.md)|
+|[인터셉터 사용하기](https://github.com/smilejakdu/typescript_study/blob/main/nestjs/2-6.interceptor_use.md)|
+
+
+## 👉 TypeORM 사용하기
