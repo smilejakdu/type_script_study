@@ -41,6 +41,9 @@
 |[Nest JS](https://github.com/smilejakdu/typescript_study/blob/main/nestjs)|
 
 # 📌 node project
-[node express typescript](https://github.com/smilejakdu/node-watcha)
-[node NestJS clone](https://github.com/smilejakdu/node-bird-nest-clone)
+
+|내용|
+|:------:|
+|[node express typescript](https://github.com/smilejakdu/node-watcha)|
+|[node NestJS clone(강의 내용이랑 같습니다.)](https://github.com/smilejakdu/node-bird-nest-clone)|
 
