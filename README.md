@@ -8,10 +8,10 @@
 # 도움되는 자료
 
 |                                         내용                                          |
-| :-----------------------------------------------------------------------------------: | --- |
-| [rxjs 공식문서](https://github.com/smilejakdu/typescript_study/tree/main/inflean_lee) | )   |
-|    [typescript 공식문서](https://www.typescriptlang.org/docs/handbook/intro.html)     | )   |
-|                       [typeorm 공식문서](https://typeorm.io/#/)                       | )   |
+| :-----------------------------------------------------------------------------------: |
+| [rxjs 공식문서](https://github.com/smilejakdu/typescript_study/tree/main/inflean_lee) |
+|    [typescript 공식문서](https://www.typescriptlang.org/docs/handbook/intro.html)     |
+|                       [typeorm 공식문서](https://typeorm.io/#/)                       |
 
 # 📌 typescript 영상
 
