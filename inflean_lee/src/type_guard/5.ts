@@ -1,23 +1,35 @@
-export { };
+export {};
 
 // discriminated union
 
 interface Person {
-	type: 'a';
-	name: string;
-	age: number;
+  type: "a";
+  name: string;
+  age: number;
 }
 
-interface Product{
-	type: 'b';
-	name: string;
-	price: number;
+interface Product {
+  type: "b";
+  name: string;
+  price: number;
 }
 
-function print(value: Person | Product) {
-	if (value.type === 'a') {
-		console.log(value.age);
-	} else {
-		console.log(value.price);
-	}
+interface Product2 {
+  type: "c";
+  name: string;
+  price2: number;
+}
+
+function print(value: Person | Product | Product2) {
+  switch (value.type) {
+    case "a":
+      console.log(value.age);
+      break;
+    case "b":
+      console.log(value.price);
+      break;
+    case "c":
+      console.log(value.price2);
+      break;
+  }
 }
