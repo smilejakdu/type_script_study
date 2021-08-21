@@ -1,6 +1,10 @@
 export {};
 
-// discriminated union
+/*
+discriminated union
+interface 를 타입가드를 이용해서 구별하는 방법은 유니온타입을 사용하는것이다.
+같은 이름의 속성을 정의하고 그 타입은 서로 겹치지 않게 정의를 한다.
+*/
 
 interface Person {
   type: "a";
