@@ -52,9 +52,8 @@
 
 # 📌 node project
 
-https://github.com/smilejakdu/nest-watcha
-| 내용 |
+|                                               내용                                               |
 | :----------------------------------------------------------------------------------------------: |
-| [node express typescript](https://github.com/smilejakdu/node-watcha) |
+|               [node express typescript](https://github.com/smilejakdu/node-watcha)               |
 | [node NestJS clone(강의 내용이랑 같습니다.)](https://github.com/smilejakdu/node-bird-nest-clone) |
-| [node NestJS watcha(nest simple project)](https://github.com/smilejakdu/nest-watcha) |
+|       [node NestJS watcha(nest simple project)](https://github.com/smilejakdu/nest-watcha)       |
