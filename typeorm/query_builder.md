@@ -3,7 +3,7 @@ https://github.com/typeorm/typeorm/blob/master/docs/select-query-builder.md#what
 # Select using Query Builder
 
 * [What is `QueryBuilder`](#what-is-querybuilder)
-* [`QueryBuilder` 사용시 중요한 사항](#important-note-when-using-the-querybuilder)
+* [`QueryBuilder` 사용시 중요한 사항](##QueryBuilder-사용시-중요한-사항)
 * [How to create and use a `QueryBuilder`](#how-to-create-and-use-a-querybuilder)
 * [Getting values using QueryBuilder](#getting-values-using-querybuilder)
 * [What are aliases for?](#what-are-aliases-for)
@@ -64,7 +64,7 @@ User {
 }
 ```
 
-## `QueryBuilder` 사용시 중요한 사항
+## QueryBuilder 사용시 중요한 사항
 
 When using the `QueryBuilder`, you need to provide unique parameters in your `WHERE` expressions. **This will not work**:
 
