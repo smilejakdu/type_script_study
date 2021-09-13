@@ -42,7 +42,8 @@ https://github.com/typeorm/typeorm/blob/master/docs/select-query-builder.md#what
 
 ## What is `QueryBuilder`
 
-QueryBuilder는 TypeORM의 가장 강력한 기능 중 하나입니다. 우아하고 편리한 구문을 사용하여 SQL 쿼리를 작성하고 실행하고 자동으로 변환된 엔터티를 가져올 수 있습니다.
+QueryBuilder는 TypeORM의 기능 중 하나입니다. 만약 더 많은 종류를 알고싶으시다면 공식문서를 참고하시면 됩니다.
+`QueryBuilder`를 사용하여 SQL 쿼리를 작성하고 실행하고 자동으로 변환된 엔터티를 가져올 수 있습니다.
 
 `QueryBuilder` 간단한 예시
 
