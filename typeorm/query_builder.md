@@ -442,17 +442,14 @@ SELECT ... FROM users user WHERE user.registered = true AND (user.firstName = 'T
 
 필요한 만큼 AND 및 OR 표현식을 결합할 수 있습니다.
 
- .where를 두 번 이상 사용하면 이전의 모든 WHERE 표현식을 무시하게 됩니다.
+.where를 두 번 이상 사용하면 이전의 모든 WHERE 표현식을 무시하게 됩니다.
 
-You can combine as many `AND` and `OR` expressions as you need.
-If you use `.where` more than once you'll override all previous `WHERE` expressions.
 
-참고: `orWhere` 에 주의하십시오. `AND` 및 `OR` 표현식이 모두 포함된 복잡한 표현식을 사용하는 경우, 이러한 표현식은 가식 없이 누적된다는 점에 유의하십시오.
+참고: `orWhere` 에 주의하십시오. `AND` 및 `OR` 표현식이 모두 포함된 복잡한 표현식을 사용하는 경우,
+이러한 표현식은 누락 될 수도 있다.
 때로는 대신 where 문자열을 만들고 orWhere를 사용하지 않아야 합니다.
 
-Note: be careful with `orWhere` - if you use complex expressions with both `AND` and `OR` expressions,
-keep in mind that they are stacked without any pretences.
-Sometimes you'll need to create a where string instead, and avoid using `orWhere`.
+때때로 `orWhere` 를 사용하기 보다 그냥 where 문 `string` 을 쓰는것이 나을수도 있
 
 ## Adding `HAVING` expression
 
@@ -1116,8 +1113,6 @@ export class User {
     password: string;
 }
 ```
-
-Using a standard `find` or query, you will not receive the `password` property for the model. However, if you do the following:
 
 일반적인 `find` 또는 `query` 를 사용하면 모델에 대한 `password` 를 받지 못합니다.
 그러나 다음을 수행하는 경우:
