@@ -49,7 +49,7 @@ const firstUser = await connection
 
 좀더 자세히 보고싶다면 
 
-[querybuilder select](https://github.com/smilejakdu/typescript_study/blob/main/typeorm/query_builder.md)
+[querybuilder select](https://github.com/smilejakdu/typescript_study/blob/main/typeorm/queryBuilder_select.md)
 
 참고하면 된다.
 
