@@ -1,11 +1,15 @@
-type UserInputSanitizedString = string;
+const symbol1 = Symbol();
+const symbol2 = Symbol(42);
+const symbol3 = Symbol('foo');
 
-function sanitizeInput(str: string): UserInputSanitizedString {
-  return sanitize(str);
-}
+console.log(typeof symbol1);
+// expected output: "symbol"
 
-// Create a sanitized input
-let userInput = sanitizeInput(getInput());
+// console.log(symbol2 === 42);
+// expected output: false
 
-// Can still be re-assigned with a string though
-userInput = "new input";
+console.log(symbol3.toString());
+// expected output: "Symbol(foo)"
+
+console.log(Symbol('foo') === Symbol('foo'));
+// expected output: false
