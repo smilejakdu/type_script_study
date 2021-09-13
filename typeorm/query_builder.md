@@ -1,17 +1,28 @@
 https://github.com/typeorm/typeorm/blob/master/docs/select-query-builder.md#what-is-querybuilder 
 한글 번역
-# Select using Query Builder
 
+# Reference
+[공식문서](https://typeorm.io)
+
+[github.com/typeorm](https://github.com/typeorm/typeorm)
+
+[reference velog data mapper 와 querybuilder](https://velog.io/@leeinae/TypeORM-TypeORM%EC%9D%98-%ED%8C%A8%ED%84%B4%EB%93%A4%EC%9D%84-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90#data-mapper-%ED%8C%A8%ED%84%B4)
+
+[reference velog 어떤상황에서 어떤패턴으로 개발해야할까](https://velog.io/@josworks27/typeORM-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
+
+# Select using Query Builder
 * [What is `QueryBuilder`](#what-is-querybuilder)
-* [`QueryBuilder` 사용시 중요한 사항](##QueryBuilder-사용시-중요한-사항)
+* [How to use `QueryBuilder`](#how-to-use-querybuilder)
+* [`QueryBuilder` 사용시 중요한 사항](#querybuilder-사용시-중요한-사항)
 * [How to create and use a `QueryBuilder`](#how-to-create-and-use-a-querybuilder)
-* [Getting values using QueryBuilder](#getting-values-using-querybuilder)
-* [What are aliases for?](#what-are-aliases-for)
-* [Using parameters to escape data](#using-parameters-to-escape-data)
-* [Adding `WHERE` expression](#adding-where-expression)
+* [getRepository 와 Repository](#getrepository-와-repository)
+* [`QueryBuilder`를 사용하여 값 가져오기](#querybuilder를-사용하여-값-가져오기)
+* [별칭(alias)은 무엇이냐](#alias은-무엇이냐)
+* [매개변수를 사용하여 데이터 이스케이프](#매개변수를-사용하여-데이터-이스케이프)
+* [WHERE 표현식 추가](#where-표현식-추가)
 * [Adding `HAVING` expression](#adding-having-expression)
 * [Adding `ORDER BY` expression](#adding-order-by-expression)
-* [Adding `GROUP BY` expression](#adding-group-by-expression)
+* [`GROUP BY` 표현식 추가](#group-by-표현식-추가)
 * [Adding `LIMIT` expression](#adding-limit-expression)
 * [Adding `OFFSET` expression](#adding-offset-expression)
 * [Joining relations](#joining-relations)
@@ -43,7 +54,7 @@ const firstUser = await connection
     .getOne();
 ```
 
-위의 코드가 만약에 `raq query` 가 된다면
+위의 코드가 만약에 `raw query` 가 된다면
 
 ```sql
 SELECT
@@ -64,9 +75,36 @@ User {
 }
 ```
 
+## how to use Querybuilder
+`QueryBuilder` 를 사용하게 되면 , 자동으로 Entity 로 변환해 반환한다.
+
+```ts
+import { getRepository } from 'typeorm';
+
+const user = await getRepository(User)
+	.createQueryBuilder("user")
+	.where("user.id = :id", {id : 1}
+	.getOne();
+```
+
+Repository 를 이용해서 `queryBuilder` 를 작성하는 방식이다.
+여기서 `createQueryBuilder("user")` 에서 user 는 SQL alias 이다. 
+
+mysql 예로 들자면 `SELECT users AS user` 이런 느낌이라고 할 수 있다.
+
+하나의 `querybuilder` 는 한개의 alias 만 가질 수 있는게 아니라 __여러개의 alias__ 를 가질 수 있다.
+
+여러 테이블마다 alias 를 가지게 할 수 있고, 여러 테이블을 join 할 수도 있다.
+
+DB 에서 단일한 결과를 가져오려면 `.getOne()` 을 사용하고 , 여러 개의 결과를 가지고 오려면 `.getMany()` 를 사용하면 된다.
+
+특정 데이터를 가져와야할 땐 (ex. sum)
+`.getRawOne()` 이나 `.getRawMany()` 를 사용해서 결과값을 가져온다.
+
 ## QueryBuilder 사용시 중요한 사항
 
-When using the `QueryBuilder`, you need to provide unique parameters in your `WHERE` expressions. **This will not work**:
+`QueryBuilder` 를 사요할때 , `WHERE` 조건에 부합하는 파라미터를 입력해야한다.
+지금 보이는 코드는 동작하지 않는다.
 
 ```TypeScript
 const result = await getConnection()
@@ -77,9 +115,9 @@ const result = await getConnection()
     .andWhere('user.linkedCow = :id', { id: cowId });
 ```
 
-... but this will:
+그리고 밑에 코드를 보게 되면 
 
-```TypeScript
+```ts
 const result = await getConnection()
     .createQueryBuilder('user')
     .leftJoinAndSelect('user.linkedSheep', 'linkedSheep')
@@ -87,12 +125,12 @@ const result = await getConnection()
     .where('user.linkedSheep = :sheepId', { sheepId })
     .andWhere('user.linkedCow = :cowId', { cowId });
 ```
-
-Note that we uniquely named `:sheepId` and `:cowId` instead of using `:id` twice for different parameters.
+딕셔너리로 `{id : sheepId}` 를 넣어도 되지만 
+`:sheepId` 또는 `cowId` 같은 고융한 이름을 지정해서 사용할 수도 있습니다.
 
 ## How to create and use a `QueryBuilder`
 
-There are several ways how you can create a `Query Builder`:
+`Query Builder` 를 작성하는데 여러 방법이 존재한다.
 
 * Using connection:
 
@@ -129,9 +167,21 @@ There are several ways how you can create a `Query Builder`:
         .getOne();
     ```
 
-There are 5 different `QueryBuilder` types available:
+## getRepository 와 Repository
+>`getRepository` 말고 `Repository` 도 있는데 ,
+`getRepository` 내부를 보면 return 으로 `Repository` 를 return 하는걸 확인할 수 있다.
 
-* `SelectQueryBuilder` - used to build and execute `SELECT` queries. Example:
+> 그러면 드는생각이 어떠한 경우에 `getRepository` 를 사용하고 어떤경우엔
+`Repository`를 사용해야할까?? 
+
+> 생성자에서 @InjectRepository 를 한다거나 @Inject 걸어둔게 있다면 this 로 불러 올수있지만
+그게 아닐땐 `getRepository` 로 const user = await getConnection() 으로 불러오면 된다.
+
+
+
+5가지 `QueryBuilder` 타입 유형이 있다.
+
+* `SelectQueryBuilder` - SELECT 쿼리를 작성하고 실행하는 데 사용됩니다. 예시
 
     ```typescript
     import {getConnection} from "typeorm";
@@ -144,7 +194,7 @@ There are 5 different `QueryBuilder` types available:
         .getOne();
     ```
 
-* `InsertQueryBuilder` - used to build and execute `INSERT` queries. Example:
+* `InsertQueryBuilder` - INSERT 쿼리를 작성하고 실행하는 데 사용됩니다. 예시:
 
     ```typescript
     import {getConnection} from "typeorm";
@@ -160,8 +210,7 @@ There are 5 different `QueryBuilder` types available:
         .execute();
     ```
 
-* `UpdateQueryBuilder` - used to build and execute `UPDATE` queries. Example:
-
+* `UpdateQueryBuilder` - UPDATE 쿼리를 빌드하고 실행하는 데 사용됩니다. 예시:
     ```typescript
     import {getConnection} from "typeorm";
 
@@ -172,7 +221,7 @@ There are 5 different `QueryBuilder` types available:
         .where("id = :id", { id: 1 })
         .execute();
     ```
-* `DeleteQueryBuilder` - used to build and execute `DELETE` queries. Example:
+* `DeleteQueryBuilder` - used to build and execute DELETE queries. Example:
 
     ```typescript
     import {getConnection} from "typeorm";
@@ -185,15 +234,14 @@ There are 5 different `QueryBuilder` types available:
         .execute();
     ```
 
-* `RelationQueryBuilder` - used to build and execute relation-specific operations [TBD].
+* `RelationQueryBuilder` - 관계별 작업을 빌드하고 실행하는 데 사용됩니다[TBD].
 
 You can switch between different types of query builder within any of them,
 once you do, you will get a new instance of query builder (unlike all other methods).
 
-## Getting values using `QueryBuilder`
+## `QueryBuilder`를 사용하여 값 가져오기
 
-To get a single result from the database,
-for example to get a user by id or name, you must use `getOne`:
+예를 들어 ID 또는 이름으로 사용자의 단일 결과를 데이터베이스에서 가져오려면 `getOne` 을 사용해야 한다.
 
 ```typescript
 const timber = await getRepository(User)
@@ -202,8 +250,7 @@ const timber = await getRepository(User)
     .getOne();
 ```
 
-`getOneOrFail` will get a single result from the database, but if
-no result exists it will throw an `EntityNotFoundError`:
+`getOneOrFail`은 데이터베이스에서 단일 결과를 가져오지만 결과가 없으면 `EntityNotFoundError`가 발생합니다.
 
 ```typescript
 const timber = await getRepository(User)
@@ -212,8 +259,7 @@ const timber = await getRepository(User)
     .getOneOrFail();
 ```
 
-To get multiple results from the database,
-for example, to get all users from the database, use `getMany`:
+예를 들어 데이터베이스에서 모든 사용자를 가져오려면 데이터베이스에서 여러 결과를 얻으려면 `getMany`를 사용하십시오.
 
 ```typescript
 const users = await getRepository(User)
@@ -221,13 +267,13 @@ const users = await getRepository(User)
     .getMany();
 ```
 
-There are two types of results you can get using select query builder: **entities** or **raw results**.
-Most of the time, you need to select real entities from your database, for example, users.
-For this purpose, you use `getOne` and `getMany`.
-But sometimes you need to select some specific data, let's say the *sum of all user photos*.
-This data is not an entity, it's called raw data.
-To get raw data, you use `getRawOne` and `getRawMany`.
-Examples:
+쿼리 빌더 `select` 를 사용하여 얻을 수 있는 두가지 유형이 있다.
+`entities` 와 `raw results` 
+하지만 대부분의 경우 데이터베이스에서 실제 entities 를 select 해야한다.
+그럴땐 `getOne` 및 `getMany` 를 사용한다.
+그러나 때때로 모든 사용자 사진의 합계를 가져온다고 하면 
+이 데이터는 엔터티가 아니면 원시 데이터라고 하면 , 
+원서 데이터를 얻으려면 `getRawOn` 및 `getRawMany` 를 사용하게 된다.
 
 ```typescript
 const { sum } = await getRepository(User)
@@ -248,13 +294,12 @@ const photosSums = await getRepository(User)
 // result will be like this: [{ id: 1, sum: 25 }, { id: 2, sum: 13 }, ...]
 ```
 
-## What are aliases for?
+## alias은 무엇이냐
 
-We used `createQueryBuilder("user")`. But what is "user"?
-It's just a regular SQL alias.
-We use aliases everywhere, except when we work with selected data.
+우리는 `createQueryBuilder("user")` 를 사용했다 
+여기서 `"user"` 는 뭘까 ?? 일반 SQL 사용했을때의 별칭이라고 생각하면 된다.
 
-`createQueryBuilder("user")` is equivalent to:
+`createQueryBuilder("user")` 다음과 같이 사용합니다.
 
 ```typescript
 createQueryBuilder()
@@ -262,14 +307,14 @@ createQueryBuilder()
     .from(User, "user")
 ```
 
-Which will result in the following sql query:
+그러면 다음과 같은 SQL 쿼리가 생성됩니다.
 
 ```sql
 SELECT ... FROM users user
 ```
 
-In this SQL query, `users` is the table name, and `user` is an alias we assign to this table.
-Later we use this alias to access the table:
+이 SQL 쿼리에서 users 는 테이블 이름이고 , user 는 이 테이블에 할당한 별칭이다.
+이 별칭을 사용하여 테이블에 액세스 하게 된다.
 
 ```typescript
 createQueryBuilder()
@@ -277,22 +322,19 @@ createQueryBuilder()
     .from(User, "user")
     .where("user.name = :name", { name: "Timber" })
 ```
-
-Which produces the following SQL query:
+다음 SQL 쿼리를 생성합니다.
 
 ```sql
 SELECT ... FROM users user WHERE user.name = 'Timber'
 ```
 
-See, we used the users table by using the `user` alias we assigned when we created a query builder.
+쿼리 작성기를 만들 때 할당한 사용자 별칭을 사용하여 users 테이블을 사용했습니다
 
-One query builder is not limited to one alias, they can have multiple aliases.
-Each select can have its own alias,
-you can select from multiple tables each with its own alias,
-you can join multiple tables each with its own alias.
-You can use those aliases to access tables are you selecting (or data you are selecting).
+하나의 쿼리 빌더는 하나의 별칭으로 제한되지 않으며 여러 별칭을 가질 수 있습니다.
+각 선택에는 고유한 별칭이 있을 수 있으며, 각각 고유한 별칭이 있는 여러 테이블에서 선택할 수 있으며, 각각 고유한 별칭이 있는 여러 테이블을 조인할 수 있습니다.
+이러한 별칭을 사용하여 선택 중인 테이블(또는 선택 중인 데이터)에 액세스할 수 있습니다.
 
-## Using parameters to escape data
+## 매개변수를 사용하여 데이터 이스케이프
 
 We used `where("user.name = :name", { name: "Timber" })`.
 What does `{ name: "Timber" }` stand for? It's a parameter we used to prevent SQL injection.
@@ -305,32 +347,30 @@ where `:name` is a parameter name and the value is specified in an object: `{ na
 .where("user.name = :name", { name: "Timber" })
 ```
 
-is a shortcut for:
+다음과 같이 사용할 수도 있다.
 
 ```typescript
 .where("user.name = :name")
 .setParameter("name", "Timber")
 ```
 
-Note: do not use the same parameter name for different values across the query builder. Values will be overridden if you set them multiple times.
+참고: 쿼리 빌더에서 다른 값에 대해 동일한 매개변수 이름을 사용하지 마십시오. 여러 번 설정하면 값이 무시됩니다.
 
-You can also supply an array of values, and have them transformed into a list of values in the SQL
-statement, by using the special expansion syntax:
+특별한 확장 구문을 사용하여 값 배열을 제공하고 SQL 문에서 값 목록으로 변환하도록 할 수도 있습니다.
 
 ```typescript
 .where("user.name IN (:...names)", { names: [ "Timber", "Cristal", "Lina" ] })
 ```
 
-Which becomes:
+`raw query` 는 밑과 같다.
 
 ```sql
 WHERE user.name IN ('Timber', 'Cristal', 'Lina')
 ```
 
-## Adding `WHERE` expression
+## `WHERE` 표현식 추가
 
-Adding a `WHERE` expression is as easy as:
-
+WHERE 표현식을 추가하는 것은 다음과 같이 쉽습니다.
 ```typescript
 createQueryBuilder("user")
     .where("user.name = :name", { name: "Timber" })
@@ -342,7 +382,7 @@ Which will produce:
 SELECT ... FROM users user WHERE user.name = 'Timber'
 ```
 
-You can add `AND` into an existing `WHERE` expression:
+`AND` 를 통해서 `WHERE` 문을 추가 할 수가 있다.
 
 ```typescript
 createQueryBuilder("user")
@@ -350,13 +390,13 @@ createQueryBuilder("user")
     .andWhere("user.lastName = :lastName", { lastName: "Saw" });
 ```
 
-Which will produce the following SQL query:
+다음을 생성합니다.
 
 ```sql
 SELECT ... FROM users user WHERE user.firstName = 'Timber' AND user.lastName = 'Saw'
 ```
 
-You can add `OR` into an existing `WHERE` expression:
+기존 WHERE 표현식에 OR을 추가할 수 있습니다.
 
 ```typescript
 createQueryBuilder("user")
@@ -364,27 +404,26 @@ createQueryBuilder("user")
     .orWhere("user.lastName = :lastName", { lastName: "Saw" });
 ```
 
-Which will produce the following SQL query:
+결과는 다음과 같이 나옵니다.
 
 ```sql
 SELECT ... FROM users user WHERE user.firstName = 'Timber' OR user.lastName = 'Saw'
 ```
 
-You can do an `IN` query with the `WHERE` expression:
+`WHERE` 표현식을 사용하여 `IN` 쿼리를 수행할 수 있습니다.
 
 ```typescript
 createQueryBuilder("user")
     .where("user.id IN (:...ids)", { ids: [1, 2, 3, 4] })
 ```
 
-Which will produce the following SQL query:
+그러면 다음 SQL 쿼리가 생성됩니다.
 
 ```sql
 SELECT ... FROM users user WHERE user.id IN (1, 2, 3, 4)
 ```
 
-
-You can add a complex `WHERE` expression into an existing `WHERE` using `Brackets`
+`Brackets` 를 사용하여 기존 WHERE에 복잡한 WHERE 표현식을 추가할 수 있습니다.
 
 ```typescript
 createQueryBuilder("user")
@@ -395,14 +434,21 @@ createQueryBuilder("user")
     }))
 ```
 
-Which will produce the following SQL query:
+`raw query` 결과입니다.
 
 ```sql
 SELECT ... FROM users user WHERE user.registered = true AND (user.firstName = 'Timber' OR user.lastName = 'Saw')
 ```
 
+필요한 만큼 AND 및 OR 표현식을 결합할 수 있습니다.
+
+ .where를 두 번 이상 사용하면 이전의 모든 WHERE 표현식을 무시하게 됩니다.
+
 You can combine as many `AND` and `OR` expressions as you need.
 If you use `.where` more than once you'll override all previous `WHERE` expressions.
+
+참고: `orWhere` 에 주의하십시오. `AND` 및 `OR` 표현식이 모두 포함된 복잡한 표현식을 사용하는 경우, 이러한 표현식은 가식 없이 누적된다는 점에 유의하십시오.
+때로는 대신 where 문자열을 만들고 orWhere를 사용하지 않아야 합니다.
 
 Note: be careful with `orWhere` - if you use complex expressions with both `AND` and `OR` expressions,
 keep in mind that they are stacked without any pretences.
@@ -410,20 +456,20 @@ Sometimes you'll need to create a where string instead, and avoid using `orWhere
 
 ## Adding `HAVING` expression
 
-Adding a `HAVING` expression is easy as:
+다음과 같이 HAVING 표현식을 사용할 수가 있다.
 
 ```typescript
 createQueryBuilder("user")
     .having("user.name = :name", { name: "Timber" })
 ```
 
-Which will produce following SQL query:
+`raw query` 결과
 
 ```sql
 SELECT ... FROM users user HAVING user.name = 'Timber'
 ```
 
-You can add `AND` into an exist `HAVING` expression:
+기존 `HAVING` 표현식에 `AND` 을 추가할 수 있습니다.
 
 ```typescript
 createQueryBuilder("user")
@@ -431,13 +477,13 @@ createQueryBuilder("user")
     .andHaving("user.lastName = :lastName", { lastName: "Saw" });
 ```
 
-Which will produce the following SQL query:
+`raw query` 결과
 
 ```sql
 SELECT ... FROM users user HAVING user.firstName = 'Timber' AND user.lastName = 'Saw'
 ```
 
-You can add `OR` into a exist `HAVING` expression:
+기존 `HAVING` 표현식에 `OR` 을 추가할 수 있습니다.
 
 ```typescript
 createQueryBuilder("user")
@@ -445,31 +491,32 @@ createQueryBuilder("user")
     .orHaving("user.lastName = :lastName", { lastName: "Saw" });
 ```
 
-Which will produce the following SQL query:
+`raw query` 결과
 
 ```sql
 SELECT ... FROM users user HAVING user.firstName = 'Timber' OR user.lastName = 'Saw'
 ```
 
-You can combine as many `AND` and `OR` expressions as you need.
-If you use `.having` more than once you'll override all previous `HAVING` expressions.
+필요한 만큼 `AND` 및 `OR` 표현식을 결합할 수 있습니다.
+
+`.having` 를 두 번 이상 사용하면 이전의 모든 HAVING 표현식을 재정의합니다.
 
 ## Adding `ORDER BY` expression
 
-Adding an `ORDER BY` expression is easy as:
+`ORDER BY` 표현식을 사용할수가 있다.
 
 ```typescript
 createQueryBuilder("user")
     .orderBy("user.id")
 ```
 
-Which will produce:
+`raw query` 결과
 
 ```sql
 SELECT ... FROM users user ORDER BY user.id
 ```
 
-You can change the ordering direction from ascending to descending (or versa):
+오름차순에서 내림차순으로(또는 그 반대로) 순서를 변경할 수 있습니다.
 
 ```typescript
 createQueryBuilder("user")
@@ -479,7 +526,12 @@ createQueryBuilder("user")
     .orderBy("user.id", "ASC")
 ```
 
-You can add multiple order-by criteria:
+여러 주문 기준을 추가할 수 있습니다.
+```ts
+orderBy("user.name").addOrderBy("user.id");
+```
+
+하게되면 우선적으로 `user.name` 순으로 정렬하게 되고 그다음으로 `user.id` 순으로 정렬하게 된다.
 
 ```typescript
 createQueryBuilder("user")
@@ -487,7 +539,7 @@ createQueryBuilder("user")
     .addOrderBy("user.id");
 ```
 
-You can also use a map of order-by fields:
+다음과 같이 order-by 필드 맵을 사용할 수도 있습니다.
 
 ```typescript
 createQueryBuilder("user")
@@ -497,13 +549,14 @@ createQueryBuilder("user")
     });
 ```
 
-If you use `.orderBy` more than once you'll override all previous `ORDER BY` expressions.
+
+`.orderBy`를 두 번 이상 사용하면 이전의 모든 ORDER BY 표현식을 재정의하게 됩니다.
 
 ## Adding `DISTINCT ON` expression (Postgres only)
-When using both distinct-on with an order-by expression, the distinct-on expression must match the leftmost order-by.
-The distinct-on expressions are interpreted using the same rules as order-by. Please note that, using distinct-on without an order-by expression means that the first row of each set is unpredictable.
+주문 기준 표현식과 구별 설정을 모두 사용하는 경우 구별 설정 표현식은 가장 왼쪽의 주문 기준과 일치해야 합니다.
+구별되는 표현식은 order-by와 동일한 규칙을 사용하여 해석됩니다. order-by 표현식 없이 distinct-on을 사용하면 각 세트의 첫 번째 행을 예측할 수 없음을 의미합니다.
 
-Adding a `DISTINCT ON` expression is easy as:
+DISTINCT ON 표현식은 다음과 같다.
 
 ```typescript
 createQueryBuilder("user")
@@ -511,27 +564,28 @@ createQueryBuilder("user")
     .orderBy("user.id")
 ```
 
-Which will produce:
+`raw query` 결과
 
 ```sql
 SELECT DISTINCT ON (user.id) ... FROM users user ORDER BY user.id
 ```
 
-## Adding `GROUP BY` expression
+## GROUP BY 표현식 추가
 
-Adding a `GROUP BY` expression is easy as:
+`GROUP BY` 표현식은 다음과 같다.
 
 ```typescript
 createQueryBuilder("user")
     .groupBy("user.id")
 ```
 
-Which will produce the following SQL query:
+`raw query` 결과
 
 ```sql
 SELECT ... FROM users user GROUP BY user.id
 ```
-To add more group-by criteria use `addGroupBy`:
+
+그룹 기준 기준을 더 추가하려면 `addGroupBy` 를 사용하십시오.
 
 ```typescript
 createQueryBuilder("user")
@@ -539,49 +593,51 @@ createQueryBuilder("user")
     .addGroupBy("user.id");
 ```
 
-If you use `.groupBy` more than once you'll override all previous `GROUP BY` expressions.
+`.groupBy` 를 두 번 이상 사용하면 이전의 모든 `GROUP BY` 표현식을 재정의하게 됩니다.
 
 ## Adding `LIMIT` expression
 
-Adding a `LIMIT` expression is easy as:
+LIMIT 표현식을 추가하는 것은 다음과 같다
 
 ```typescript
 createQueryBuilder("user")
     .limit(10)
 ```
 
-Which will produce the following SQL query:
+`raw query` 결과
 
 ```sql
 SELECT ... FROM users user LIMIT 10
 ```
 
-The resulting SQL query depends on the type of database (SQL, mySQL, Postgres, etc).
-Note: LIMIT may not work as you may expect if you are using complex queries with joins or subqueries.
-If you are using pagination, it's recommended to use `take` instead.
+결과 SQL 쿼리는 데이터베이스 유형(SQL, mySQL, Postgres 등)에 따라 다릅니다.
+참고: 조인 또는 하위 쿼리가 있는 복잡한 쿼리를 사용하는 경우 `LIMIT`가 예상대로 작동하지 않을 수 있습니다.
+페이지 매김을 사용하는 경우 대신 `take`를 사용하는 것이 좋습니다.
 
 ## Adding `OFFSET` expression
 
-Adding an SQL `OFFSET` expression is easy as:
+`OFFSET` 표현식을 추가하는 것은 다음과 같다
 
 ```typescript
 createQueryBuilder("user")
     .offset(10)
 ```
 
-Which will produce the following SQL query:
+`raw query` 결과
 
 ```sql
 SELECT ... FROM users user OFFSET 10
 ```
 
-The resulting SQL query depends on the type of database (SQL, mySQL, Postgres, etc).
-Note: OFFSET may not work as you may expect if you are using complex queries with joins or subqueries.
-If you are using pagination, it's recommended to use `skip` instead.
+결과 SQL 쿼리는 데이터베이스 유형(SQL, mySQL, Postgres 등)에 따라 다릅니다.
+
+참고: 조인 또는 하위 쿼리가 있는 복잡한 쿼리를 사용하는 경우 `OFFSET`이 예상대로 작동하지 않을 수 있습니다.
+
+`pagination` 을 사용하는 경우 대신 `skip`을 사용하는 것이 좋습니다.
 
 ## Joining relations
 
-Let's say you have the following entities:
+다음 엔터티가 있다고 가정해 보겠습니다.
 
 ```typescript
 import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
@@ -619,7 +675,7 @@ export class Photo {
 }
 ```
 
-Now let's say you want to load user "Timber" with all of his photos:
+이제 사용자 "Timber"를 그의 모든 사진과 함께 데이터를 가져올려고 한다고 가정해 보겠습니다.
 
 ```typescript
 const user = await createQueryBuilder("user")
@@ -628,7 +684,7 @@ const user = await createQueryBuilder("user")
     .getOne();
 ```
 
-You'll get the following result:
+다음과 같은 결과를 얻을 수 있습니다.
 
 ```typescript
 {
@@ -643,11 +699,10 @@ You'll get the following result:
     }]
 }
 ```
-
-As you can see `leftJoinAndSelect` automatically loaded all of Timber's photos.
-The first argument is the relation you want to load and the second argument is an alias you assign to this relation's table.
-You can use this alias anywhere in query builder.
-For example, let's take all Timber's photos which aren't removed.
+보시다시피 `leftJoinAndSelect` 는 Timber의 모든 사진을 자동으로 로드합니다.
+첫 번째 인수는 로드하려는 관계이고 두 번째 인수는 이 관계의 테이블에 할당하는 별칭입니다.
+쿼리 작성기의 모든 위치에서 이 별칭을 사용할 수 있습니다. 
+예를 들어, 제거되지 않은 Timber의 photos 를 모두 가져옵니다.
 
 ```typescript
 const user = await createQueryBuilder("user")
@@ -657,7 +712,7 @@ const user = await createQueryBuilder("user")
     .getOne();
 ```
 
-This will generate following sql query:
+그러면 다음과 같은 SQL 쿼리가 생성됩니다.
 
 ```sql
 SELECT user.*, photo.* FROM users user
@@ -665,7 +720,7 @@ SELECT user.*, photo.* FROM users user
     WHERE user.name = 'Timber' AND photo.isRemoved = FALSE
 ```
 
-You can also add conditions to the join expression instead of using "where":
+`"where"` 를 사용하는 대신 조인 표현식에 조건을 추가할 수도 있습니다.
 
 ```typescript
 const user = await createQueryBuilder("user")
@@ -674,7 +729,7 @@ const user = await createQueryBuilder("user")
     .getOne();
 ```
 
-This will generate the following sql query:
+그러면 다음과 같은 SQL 쿼리가 생성됩니다.
 
 ```sql
 SELECT user.*, photo.* FROM users user
@@ -701,14 +756,16 @@ SELECT user.*, photo.* FROM users user
     WHERE user.name = 'Timber'
 ```
 
-The difference between `LEFT JOIN` and `INNER JOIN` is that `INNER JOIN` won't return a user if it does not have any photos.
-`LEFT JOIN` will return you the user even if it doesn't have photos.
-To learn more about different join types, refer to the [SQL documentation](https://msdn.microsoft.com/en-us/library/zt8wzxy4.aspx).
+`LEFT JOIN`과 `INNER JOIN`의 차이점은 `INNER JOIN`은 사진이 없는 경우 사용자를 반환하지 않는다는 것입니다.
+
+`LEFT JOIN`은 사진이 없더라도 사용자를 반환합니다.
+`다양한 조인 유형` 에 대해 자세히 알아보려면 SQL 설명서를 참조하십시오.
+[SQL documentation](https://msdn.microsoft.com/en-us/library/zt8wzxy4.aspx).
 
 ## Join without selection
 
-You can join data without its selection.
-To do that, use `leftJoin` or `innerJoin`:
+데이터를 선택하지 않고 조인할 수 있습니다.
+그렇게 하려면 `leftJoin` 또는 `innerJoin` 을 사용하십시오.
 
 ```typescript
 const user = await createQueryBuilder("user")
@@ -717,7 +774,7 @@ const user = await createQueryBuilder("user")
     .getOne();
 ```
 
-This will generate:
+그러면 다음이 생성됩니다.
 
 ```sql
 SELECT user.* FROM users user
@@ -725,12 +782,12 @@ SELECT user.* FROM users user
     WHERE user.name = 'Timber'
 ```
 
-This will select Timber if he has photos, but won't return his photos.
+사진이 있는 경우 Timber가 선택되지만 사진은 반환되지 않습니다.
+`select user.*` 라고 했으니 `user` 에 대한 데이터만 불러오게 된다.
 
 ## Joining any entity or table
 
-You can join not only relations, but also other unrelated entities or tables.
-Examples:
+관계뿐만 아니라 다른 관련 없는 엔터티나 테이블도 조인할 수 있습니다. 예:
 
 ```typescript
 const user = await createQueryBuilder("user")
@@ -746,7 +803,7 @@ const user = await createQueryBuilder("user")
 
 ## Joining and mapping functionality
 
-Add `profilePhoto` to `User` entity and you can map any data into that property using `QueryBuilder`:
+`profilePhoto`를 `User` 엔터티에 추가하고 `QueryBuilder` 를 사용하여 모든 데이터를 해당 속성에 매핑할 수 있습니다.
 
 ```typescript
 export class User {    
@@ -763,14 +820,12 @@ const user = await createQueryBuilder("user")
     .getOne();
 ```
 
-This will load Timber's profile photo and set it to `user.profilePhoto`.
-If you want to load and map a single entity use `leftJoinAndMapOne`.
-If you want to load and map multiple entities use `leftJoinAndMapMany`.
+그러면 Timber의 프로필 사진이 로드되어 `user.profilePhoto`로 설정됩니다.
+단일 엔티티를 로드하고 매핑하려면 `leftJoinAndMapOne`을 사용하십시오. 여러 엔터티를 로드하고 매핑하려면 `leftJoinAndMapMany`를 사용하세요.
 
 ## Getting the generated query
 
-Sometimes you may want to get the SQL query generated by `QueryBuilder`.
-To do so, use `getSql`:
+때때로 `QueryBuilder`에 의해 생성된 SQL 쿼리를 얻고 싶을 수 있습니다. 이렇게 하려면 `getSql` 을 사용하십시오.
 
 ```typescript
 const sql = createQueryBuilder("user")
@@ -779,7 +834,7 @@ const sql = createQueryBuilder("user")
     .getSql();
 ```
 
-For debugging purposes you can use `printSql`:
+디버깅 목적으로 `printSql`을 사용할 수 있습니다.
 
 ```typescript
 const users = await createQueryBuilder("user")
@@ -789,17 +844,13 @@ const users = await createQueryBuilder("user")
     .getMany();
 ```
 
-This query will return users and print the used sql statement to the console.
+이 쿼리는 사용자를 반환하고 사용된 SQL 문을 콘솔에 인쇄합니다.
 
 ## Getting raw results
+선택 쿼리 빌더를 사용하여 얻을 수 있는 결과에는 엔터티와 원시 결과의 두 가지 유형이 있습니다.
+대부분의 경우 데이터베이스에서 실제 엔터티(예: 사용자)를 선택해야 합니다. 이를 위해 getOne 및 getMany를 사용합니다.
 
-There are two types of results you can get using select query builder: **entities** and **raw results**.
-Most of the time, you need to select real entities from your database, for example, users.
-For this purpose, you use `getOne` and `getMany`.
-However, sometimes you need to select specific data, like the *sum of all user photos*.
-Such data is not a entity, it's called raw data.
-To get raw data, you use `getRawOne` and `getRawMany`.
-Examples:
+그러나 모든 사용자 사진의 합계와 같은 특정 데이터를 선택해야 하는 경우가 있습니다. 이러한 데이터는 엔터티가 아니며 원시 데이터라고 합니다. 원시 데이터를 얻으려면 `getRawOne` 및 `getRawMany` 를 사용합니다. 예:
 
 ```typescript
 const { sum } = await getRepository(User)
@@ -822,8 +873,9 @@ const photosSums = await getRepository(User)
 
 ## Streaming result data
 
-You can use `stream` which returns you a stream.
-Streaming returns you raw data and you must handle entity transformation manually:
+스트림을 반환하는 스트림을 사용할 수 있습니다.
+스트리밍은 원시 데이터를 반환하므로 엔터티 변환을 수동으로 처리해야 합니다.
+트리밍은 원시 데이터를 반환하므로 엔터티 변환을 수동으로 처리해야 합니다.
 
 ```typescript
 const stream = await getRepository(User)
@@ -834,8 +886,8 @@ const stream = await getRepository(User)
 
 ## Using pagination
 
-Most of the time when you develop an application, you need pagination functionality.
-This is used if you have pagination, page slider, or infinite scroll components in your application.
+애플리케이션을 개발할 때 대부분의 경우 `pagination`이 필요합니다.
+애플리케이션에 `pagination` , `page slider` 또는 `무한 스크롤 구성 요소`가 있는 경우에 사용됩니다.
 
 ```typescript
 const users = await getRepository(User)
@@ -845,7 +897,7 @@ const users = await getRepository(User)
     .getMany();
 ```
 
-This will give you the first 10 users with their photos.
+이렇게 하면 `photos`와 함께 처음 10명의 `users` 가 출력된다.
 
 ```typescript
 const users = await getRepository(User)
@@ -855,8 +907,11 @@ const users = await getRepository(User)
     .getMany();
 ```
 
-This will give you all except the first 10 users with their photos.
-You can combine those methods:
+이렇게 하면 `photo`가 join 된 사용자를 불러오는데
+
+처음 10명의 사용자를 제외한 사용자를 불러옵니다.
+
+다음과 같은 방법을 결합할 수 있습니다.
 
 ```typescript
 const users = await getRepository(User)
@@ -867,17 +922,17 @@ const users = await getRepository(User)
     .getMany();
 ```
 
-This will skip the first 5 users and take 10 users after them.
+이렇게 하면 처음 5명의 사용자를 건너뛰고 10명의 사용자데이터를 불러오게 됩니다.
 
+`take` 와 `skip` 은 `limit` 과 `offset` 을 사용하는 것처럼 보일 수 있지만 실제로는 그렇지 않습니다.
 
-`take` and `skip` may look like we are using `limit` and `offset`, but they aren't.
-`limit` and `offset` may not work as you expect once you have more complicated queries with joins or subqueries.
-Using `take` and `skip` will prevent those issues.
+`limit` 및 `offset` 은 조인 또는 하위 쿼리가 포함된 더 복잡한 쿼리가 있는 경우 예상대로 작동하지 않을 수 있습니다. `take` and `skip` 을 사용하면 이러한 문제를 방지할 수 있습니다.
 
 ## Set locking
 
-QueryBuilder supports both optimistic and pessimistic locking.
-To use pessimistic read locking use the following method:
+`QueryBuilder` 는 낙관적 잠금과 비관적 잠금을 모두 지원합니다. 비관적 읽기 잠금을 사용하려면 다음과 같이 사용해야 합니다.
+
+그런데 이것은 언제 사용하는것일까 ??....
 
 ```typescript
 const users = await getRepository(User)
@@ -886,7 +941,7 @@ const users = await getRepository(User)
     .getMany();
 ```
 
-To use pessimistic write locking use the following method:
+비관적 쓰기 잠금을 사용하려면 다음 방법을 사용하십시오.
 
 ```typescript
 const users = await getRepository(User)
@@ -895,7 +950,7 @@ const users = await getRepository(User)
     .getMany();
 ```
 
-To use dirty read locking use the following method:
+`dirty read` 잠금을 사용하려면 다음 방법을 사용하십시오.
 
 ```typescript
 const users = await getRepository(User)
@@ -904,7 +959,7 @@ const users = await getRepository(User)
     .getMany();
 ```
 
-To use optimistic locking use the following method:
+낙관적 잠금을 사용하려면 다음 방법을 사용하십시오.
 
 ```typescript
 const users = await getRepository(User)
@@ -913,7 +968,9 @@ const users = await getRepository(User)
     .getMany();
 ```
 
-Optimistic locking works in conjunction with both `@Version` and `@UpdatedDate` decorators.
+낙관적 잠금은 `@Version` 및 `@UpdatedDate` 데코레이터와 함께 작동합니다
+
+`setLock` 메서드는 사용해본적이 없어서 , 사용해본 사례가 있다면 update 할 생각이다.
 
 ## Max execution time
 
@@ -928,7 +985,7 @@ const users = await getRepository(User)
 
 ## Partial selection
 
-If you want to select only some entity properties, you can use the following syntax:
+일부 엔터티 속성만 선택할때는 다음과 같이 리스트를 사용하면 된다.
 
 ```typescript
 const users = await getRepository(User)
@@ -940,12 +997,14 @@ const users = await getRepository(User)
     .getMany();
 ```
 
-This will only select the `id` and `name` of `User`.
+위의 코드는 `User`의 `id` 와 `name`만 가져오는 코드이다.
 
 ## Using subqueries
 
-You can easily create subqueries. Subqueries are supported in `FROM`, `WHERE` and `JOIN` expressions.
-Example:
+
+하위 쿼리(서브쿼리) 를 쉽게 만들 수 있습니다. 하위 쿼리는 `FROM` , `WHERE` 및 `JOIN` 식에서 지원됩니다. 
+
+예시:
 
 ```typescript
 const qb = await getRepository(Post).createQueryBuilder("post");
@@ -955,7 +1014,7 @@ const posts = qb
     .getMany();
 ```
 
-A more elegant way to do the same:
+같은 결과지만 다음과 같은 결과를 좀 더 효율적은 방법으로 코드를 작성할 수 있습니다.
 
 ```typescript
 const posts = await connection.getRepository(Post)
@@ -972,7 +1031,7 @@ const posts = await connection.getRepository(Post)
     .getMany();
 ```
 
-Alternatively, you can create a separate query builder and use its generated SQL:
+다른 대안으로는 별도의 쿼리 빌더를 만들고 생성된 SQL 을 사용할 수가 있다.
 
 ```typescript
 const userQb = await connection.getRepository(User)
@@ -987,7 +1046,7 @@ const posts = await connection.getRepository(Post)
     .getMany();
 ```
 
-You can create subqueries in `FROM` like this:
+다음과 같이 `FROM` 에서 하위 쿼리(서브쿼리) 를 만들 수 있습니다.
 
 ```typescript
 const userQb = await connection.getRepository(User)
@@ -1003,7 +1062,7 @@ const posts = await connection
     .getRawMany();
 ```
 
-or using more a elegant syntax:
+아니면 다른 방법으로는 
 
 ```typescript
 const posts = await connection
@@ -1018,9 +1077,9 @@ const posts = await connection
     .getRawMany();
 ```
 
-If you want to add a subselect as a "second from" use `addFrom`.
 
-You can use subselects in `SELECT` statements as well:
+하위 선택을 "second from(두번째에서)" 로 추가하려면 `addFrom` 을 사용하십시오.
+`SELECT` 문에서도 `subselect`를 사용할 수 있습니다.
 
 ```typescript
 const posts = await connection
@@ -1037,9 +1096,9 @@ const posts = await connection
 ```
 ## Hidden Columns
 
-If the model you are querying has a column with a `select: false` column, you must use the `addSelect` function in order to retrieve the information from the column.
+쿼리하는 모델에 `select: false` column 이 있는 경우 열에서 정보를 검색하려면 `addSelect` 함수를 사용해야 합니다.
 
-Let's say you have the following entity:
+다음과 같이 `entity` 가 있다고 가정하면
 
 ```typescript
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
@@ -1060,6 +1119,9 @@ export class User {
 
 Using a standard `find` or query, you will not receive the `password` property for the model. However, if you do the following:
 
+일반적인 `find` 또는 `query` 를 사용하면 모델에 대한 `password` 를 받지 못합니다.
+그러나 다음을 수행하는 경우:
+
 ```typescript
 const users = await connection.getRepository(User)
     .createQueryBuilder()
@@ -1068,4 +1130,4 @@ const users = await connection.getRepository(User)
     .getMany();
 ```
 
-You will get the property `password` in your query.
+만약에 `addSelect` 를 사용하게 된다면 `password` 도 같이 받을 수 있습니다.
