@@ -391,7 +391,9 @@ createQueryBuilder("user")
     .andWhere("user.lastName = :lastName", { lastName: "Saw" });
 ```
 
-다음을 생성합니다.
+다음을 생성합니다. `andWhere` 를 사용하지 않고 `where` 하나에 `string`으로 `and` 사용해도 된다.
+
+> ex) where("user.firstName = :firstName AND ) 
 
 ```sql
 SELECT ... FROM users user WHERE user.firstName = 'Timber' AND user.lastName = 'Saw'
@@ -446,11 +448,11 @@ SELECT ... FROM users user WHERE user.registered = true AND (user.firstName = 'T
 .where를 두 번 이상 사용하면 이전의 모든 WHERE 표현식을 무시하게 됩니다.
 
 
-참고: `orWhere` 에 주의하십시오. `AND` 및 `OR` 표현식이 모두 포함된 복잡한 표현식을 사용하는 경우,
-이러한 표현식은 누락 될 수도 있다.
+참고: `orWhere` 에 주의해야한다. `AND` 및 `OR` 표현식이 모두 포함된 복잡한 표현식을 사용하는 경우,
+이러한 표현식이 출력되지 않을 수도 있다.
 때로는 대신 where 문자열을 만들고 orWhere를 사용하지 않아야 합니다.
 
-때때로 `orWhere` 를 사용하기 보다 그냥 where 문 `string` 을 쓰는것이 나을수도 있
+때때로 `orWhere` 를 사용하기 보다 그냥 where 문 `string` 을 쓰는것이 나을수도 있다
 
 ## Adding `HAVING` expression
 
