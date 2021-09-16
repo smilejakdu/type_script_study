@@ -68,3 +68,23 @@ mysql> select * from user;
 
 앞서 우리가 `duplicate` 를 사용했는데 , `update` 했을시 , `auto_increment` 부분은 내부적으로 쌓이는것 같다.
 
+
+# 📌 ignore
+
+중복키 제약조건에 위배되면 `insert` 를 무시한다.
+```sql
+INSERT IGNORE INTO user (user_name, price, cnt) VALUES ('ash', 1000, 0);
+```
+
+```
+mysql> INSERT IGNORE INTO user (user_name, price, cnt) VALUES ('ash', 1000, 0);
+Query OK, 0 rows affected, 1 warning (0.08 sec)
+
+mysql> select * from user;
++----+-----------+-------+-----+
+| id | user_name | price | cnt |
++----+-----------+-------+-----+
+|  7 | ash       |   500 |   0 |
++----+-----------+-------+-----+
+1 row in set (0.00 sec)
+```
