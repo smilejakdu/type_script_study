@@ -27,6 +27,13 @@
 | [deep dive](https://radlohead.gitbook.io/typescript-deep-dive/) |
 |      [heropy](https://heropy.blog/2020/01/27/typescript/)       |
 
+# 📌 effective typescript
+
+|                              내용                               |
+| :-------------------------------------------------------------: |
+| []() |
+|      []()       |
+
 # 📌 문법정리
 
 |                           내용                           |
