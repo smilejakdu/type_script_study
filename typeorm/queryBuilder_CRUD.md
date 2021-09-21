@@ -55,6 +55,8 @@ const firstUser = await connection
 
 참고하면 된다.
 
+## select list
+
 `select` 해서 너무 불필요한 데이터를 가져온다 싶으면
 
 ```ts
@@ -67,6 +69,28 @@ const firstUser = await connection
 ```
 
 원하는 정보만 가져올 수 있다.
+
+## where list
+
+```ts
+const firstUser = await connection
+  .getRepository(User)
+  .createQueryBuilder("user")
+  .select(["user.id", "user.firstName"])
+  .where("user.id IN (:...id)", { id: [1, 2, 4, 5] })
+  .getOne();
+```
+
+```ts
+const firstUser = await connection
+  .getRepository(User)
+  .createQueryBuilder("user")
+  .select(["user.id", "user.firstName"])
+  .where("user.firstName IN (:...firstName)", {
+    firstName: ["Ahn", "Kim", "Lina"],
+  })
+  .getOne();
+```
 
 ## ✅ Delete
 
