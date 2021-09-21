@@ -1,9 +1,6 @@
-- [요소가 하나일때](#요소가-하나일때)
-- [요소가 여러개일때(any)](#요소가-여러개일때-any)
-- [요소가 여러개일때(all)](#요소가-여러개일때-all)
-- [요소가 여러개일때(in)](#요소가-여러개일때-in)
+- [groupby (count)](#count)
 
-# gropu by
+# count
 
 ```sql
 mysql> select * from boards;
