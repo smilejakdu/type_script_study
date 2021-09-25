@@ -1,7 +1,13 @@
-let test;
-let test2 = null;
-let test3 = "";
 
-console.log(test);
-console.log(test2);
-console.log(test3);
+type TState = {
+  name: string;
+  capital: string;
+}
+interface IState {
+  name: string;
+  capital: string;
+}
+interface IStateWithPop extends TState {
+  population: number;
+}
+type TStateWithPop = IState & { population: number; };

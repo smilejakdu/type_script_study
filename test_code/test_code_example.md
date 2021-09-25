@@ -2,6 +2,7 @@ https://joshua1988.github.io/web-development/javascript/js-testing/
 https://yonghyunlee.gitlab.io/temp_post/jest/
 https://github.com/jasmine/jasmine/blob/4097718b6682f643833f5435b63e4f590f22919f/lib/jasmine-core/jasmine.js#L2779
 
+
 # describe
 
 `describe` 를 사용해서 __Test__ 를 그룹화 할 수 있다.
