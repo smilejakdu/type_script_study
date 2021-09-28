@@ -4,6 +4,8 @@
 
 https://orkhan.gitbook.io/typeorm/docs/insert-query-builder#raw-sql-support
 
+https://stackoverflow.com/questions/54998520/multiple-join-with-typeorm
+
 ```ts
 import { getConnection } from "typeorm";
 
