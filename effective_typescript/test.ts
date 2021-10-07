@@ -1,2 +1,9 @@
-let test = 'string'; // 타입이 string
-const test2 = '제대로 되나'; // 타입이 "제대로 되나"
+const jackson5 = ['Jackie', 'Tito', 'Jermaine', 'Marlon', 'Michael'];
+function isDefined<T>(x: T | undefined): x is T {
+  return x !== undefined;
+}
+const members = ['Janet', 's'].map(
+  who => jackson5.find(n => n === who)
+).filter(isDefined);  // Type is string[]
+
+console.log(members);
