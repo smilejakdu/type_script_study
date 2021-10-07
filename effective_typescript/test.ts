@@ -1,9 +1,8 @@
-const jackson5 = ['Jackie', 'Tito', 'Jermaine', 'Marlon', 'Michael'];
-function isDefined<T>(x: T | undefined): x is T {
-  return x !== undefined;
-}
-const members = ['Janet', 's'].map(
-  who => jackson5.find(n => n === who)
-).filter(isDefined);  // Type is string[]
+declare let hasMiddle: boolean;
+const firstLast = {first: 'Harry', last: 'Truman'};
+const president = {...firstLast, ...(hasMiddle ? {middle: 'S'} : {})};
+president.middle
+       // ~~~~~~ Property 'middle' does not exist on type
+       //        '{ first: string; last: string; }'
 
-console.log(members);
+console.log(president);
