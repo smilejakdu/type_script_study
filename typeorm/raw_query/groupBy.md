@@ -1,6 +1,6 @@
 - [count](#count)
 - [group by count](#group-by-count)
-[참고자료](https://extbrain.tistory.com/56)
+- [참고자료](https://extbrain.tistory.com/56)
 
 # count
 
