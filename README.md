@@ -46,20 +46,3 @@
 |                                           내용                                           |
 | :--------------------------------------------------------------------------------------: |
 | [node express](https://github.com/smilejakdu/typescript_study/blob/main/node-typescript) |
-
-# 📌 nest js
-
-강의를 듣고 정리했습니다.
-
-|                                       내용                                       |
-| :------------------------------------------------------------------------------: |
-| [제로초님 강의](https://github.com/smilejakdu/typescript_study/blob/main/nestjs) |
-|    [탄탄한 백엔드 NestJS](https://github.com/smilejakdu/solid_backend_nestjs)    |
-
-# 📌 node project
-
-|                                               내용                                               |
-| :----------------------------------------------------------------------------------------------: |
-|               [node express typescript](https://github.com/smilejakdu/node-watcha)               |
-| [node NestJS clone(강의 내용이랑 같습니다.)](https://github.com/smilejakdu/node-bird-nest-clone) |
-|       [node NestJS watcha(nest simple project)](https://github.com/smilejakdu/nest-watcha)       |
